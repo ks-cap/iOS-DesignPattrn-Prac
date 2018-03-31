@@ -10,14 +10,62 @@ import Foundation
 import GithubKit
 
 protocol FavoritePresenter: class {
-  init(view: FavoriteView) 
+  init(view: FavoriteView)
+  var numberOfFavorites: Int { get }
+  func addFavorite(_ repository: Repository)
+  func removeFavorite(_ repository: Repository)
+  func favoriteRepository(at index: Int) -> Repository
+  func showFavoriteRepository(at index: Int)
+  func contains(_ repository: Repository) -> Bool
 }
 
-class FavoriteViewPresenter: FavoritePresenter {
+final class FavoriteViewPresenter: FavoritePresenter {
   private var view: FavoriteView
+  private var favorites: [Repository] = [] {
+    didSet {
+      view.reloadData()
+    }
+  }
   
   init(view: FavoriteView) {
     self.view = view
   }
-
+  
+  // お気に入り登録しているrepositoryの数を返す
+  var numberOfFavorites: Int {
+    return favorites.count
+  }
+  
+  func addFavorite(_ repository: Repository) {
+    // お気に入り登録しているところから指定のRepositoryを検索する
+    if favorites.lazy.index(where: { $0.url == repository.url }) != nil {
+      return
+    }
+    favorites.append(repository)
+  }
+  
+  func removeFavorite(_ repository: Repository) {
+     // お気に入り登録しているところから指定のRepositoryを検索する
+    guard let index = favorites.lazy.index(where: { $0.url == repository.url}) else {
+      return
+    }
+    favorites.remove(at: index)
+  }
+  
+  // お気に入り登録しているところから指定の配列番号のrepositoryを返す
+  func favoriteRepository(at index: Int) -> Repository {
+    return favorites[index]
+  }
+  
+  // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示
+  func showFavoriteRepository(at index: Int) {
+    let repository = favorites[index]
+    view.showRepository(with: repository)
+  }
+  
+  // お気に入り登録しているところから指定のRepositoryが含まれているかチェック
+  func contains(_ repository: Repository) -> Bool {
+    //  含まれていたらtrueを返す
+    return favorites.lazy.index { $0.url == repository.url } != nil
+  }
 }
