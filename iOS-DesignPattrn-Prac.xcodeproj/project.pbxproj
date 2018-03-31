@@ -18,6 +18,9 @@
 		B21509BD206F83EB0058C73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21509BB206F83EB0058C73A /* LaunchScreen.storyboard */; };
 		B21509C5206F888C0058C73A /* GithubKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C3206F888C0058C73A /* GithubKit.framework */; };
 		B21509C6206F888C0058C73A /* NoticeObserveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C4206F888C0058C73A /* NoticeObserveKit.framework */; };
+		B21509CE206F92A80058C73A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509CD206F92A80058C73A /* FavoriteViewController.swift */; };
+		B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509CF206F92B80058C73A /* FavoriteViewPresenter.swift */; };
+		B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D1206F92C80058C73A /* FavoriteViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		B21509BE206F83EB0058C73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B21509C3206F888C0058C73A /* GithubKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GithubKit.framework; path = Carthage/Build/iOS/GithubKit.framework; sourceTree = "<group>"; };
 		B21509C4206F888C0058C73A /* NoticeObserveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NoticeObserveKit.framework; path = Carthage/Build/iOS/NoticeObserveKit.framework; sourceTree = "<group>"; };
+		B21509CD206F92A80058C73A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		B21509CF206F92B80058C73A /* FavoriteViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewPresenter.swift; sourceTree = "<group>"; };
+		B21509D1206F92C80058C73A /* FavoriteViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,9 +144,20 @@
 		B21509CB206F8B070058C73A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B21509CC206F927F0058C73A /* Favorite */,
 				B21509B6206F83EB0058C73A /* Main.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		B21509CC206F927F0058C73A /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				B21509CD206F92A80058C73A /* FavoriteViewController.swift */,
+				B21509CF206F92B80058C73A /* FavoriteViewPresenter.swift */,
+				B21509D1206F92C80058C73A /* FavoriteViewDataSource.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21509CE206F92A80058C73A /* FavoriteViewController.swift in Sources */,
+				B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */,
+				B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */,
 				B21509B3206F83EB0058C73A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

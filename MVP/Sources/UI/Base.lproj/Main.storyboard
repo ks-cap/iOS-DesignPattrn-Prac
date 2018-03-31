@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-471" y="787"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="n52-je-emT">
             <objects>
-                <viewController id="aCq-4b-8xE" sceneMemberID="viewController">
+                <viewController id="aCq-4b-8xE" customClass="FavoriteViewController" customModule="MVP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eey-1N-R82">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +68,9 @@
                         <viewLayoutGuide key="safeArea" id="M4F-Mf-LDq"/>
                     </view>
                     <navigationItem key="navigationItem" id="qEB-Nl-Gs9"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="4Jj-PX-P3c" id="49l-UC-t2M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imS-Xz-M4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
