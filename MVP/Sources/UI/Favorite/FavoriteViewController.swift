@@ -38,9 +38,10 @@ final class FavoriteViewController: UIViewController, FavoriteView {
     favoriteTableView.reloadData()
   }
   
+  // ユーザのレポジトリ選択後の画面に遷移
   func showRepository(with repository: Repository) {
     // RepositoryViewControllerを初期化し, navigationControllerでpushすることで遷移させる.
-    let vc =
+    let vc = RepositoryViewController(repository: repository, favoritePresenter: presenter)
     navigationController?.pushViewController(vc, animated: true)
   }
 }

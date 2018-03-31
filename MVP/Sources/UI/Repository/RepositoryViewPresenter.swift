@@ -6,30 +6,38 @@
 //  Copyright © 2018年 佐藤賢. All rights reserved.
 //
 
-import UIKit
+import GithubKit
 
-class RepositoryViewPresenter: UIViewController {
+protocol RepositoryPresenter: class {
+  init(repository: Repository, favoritePresenter: FavoritePresenter)
+  var view: RepositoryView { get set }
+  var favoriteButtonTitle: String { get }
+  func favoriteButtonTap()
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class RepositoryViewPresenter: RepositoryPresenter {
+  var view: RepositoryView
+  private let favoritePresenter: FavoritePresenter
+  private let repository: Repository
+  
+  init(repository: Repository, favoritePresenter: FavoritePresenter) {
+    self.repository = repository
+    self.favoritePresenter = favoritePresenter
+  }
+  
+  // UINavigationItemに表示する文字を選択
+  var favoriteButtonTitle: String {
+    return favoritePresenter.contains(repository) ? "Remove" : "Add"
+  }
+  
+  func favoriteButtonTap() {
+    // お気に入り登録の追加や削除とUINavigationItemに表示する文字を表示する処理をfavoritePresenterに委譲する
+    if favoritePresenter.contains(repository) {
+      favoritePresenter.removeFavorite(repository)
+      view.updateFavoriteButtonTitle(favoriteButtonTitle)
+    } else {
+      favoritePresenter.addFavorite(repository)
+      view.updateFavoriteButtonTitle(favoriteButtonTitle)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
 }
