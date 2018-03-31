@@ -17,6 +17,8 @@
 		B21509B8206F83EB0058C73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21509B6206F83EB0058C73A /* Main.storyboard */; };
 		B21509BA206F83EB0058C73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21509B9206F83EB0058C73A /* Assets.xcassets */; };
 		B21509BD206F83EB0058C73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21509BB206F83EB0058C73A /* LaunchScreen.storyboard */; };
+		B21509C5206F888C0058C73A /* GithubKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C3206F888C0058C73A /* GithubKit.framework */; };
+		B21509C6206F888C0058C73A /* NoticeObserveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C4206F888C0058C73A /* NoticeObserveKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B21509B9206F83EB0058C73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B21509BC206F83EB0058C73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B21509BE206F83EB0058C73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B21509C3206F888C0058C73A /* GithubKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GithubKit.framework; path = Carthage/Build/iOS/GithubKit.framework; sourceTree = "<group>"; };
+		B21509C4206F888C0058C73A /* NoticeObserveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NoticeObserveKit.framework; path = Carthage/Build/iOS/NoticeObserveKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21509C5206F888C0058C73A /* GithubKit.framework in Frameworks */,
+				B21509C6206F888C0058C73A /* NoticeObserveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,7 @@
 				B2150999206F83E00058C73A /* iOS-DesignPattrn-Prac */,
 				B21509B1206F83EB0058C73A /* MVP */,
 				B2150998206F83E00058C73A /* Products */,
+				B21509C2206F888C0058C73A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +105,15 @@
 			path = MVP;
 			sourceTree = "<group>";
 		};
+		B21509C2206F888C0058C73A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B21509C3206F888C0058C73A /* GithubKit.framework */,
+				B21509C4206F888C0058C73A /* NoticeObserveKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +141,7 @@
 				B21509AC206F83EB0058C73A /* Sources */,
 				B21509AD206F83EB0058C73A /* Frameworks */,
 				B21509AE206F83EB0058C73A /* Resources */,
+				B21509C7206F88A90058C73A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,6 +213,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B21509C7206F88A90058C73A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/GithubKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NoticeObserveKit",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B2150993206F83E00058C73A /* Sources */ = {
@@ -397,6 +432,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JL94BNBL3S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MVP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ken.MVP;
@@ -412,6 +451,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JL94BNBL3S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MVP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ken.MVP;

@@ -1,0 +1,9 @@
+{
+  "commitish" : "0.4.0",
+  "iOS" : [
+    {
+      "name" : "NoticeObserveKit",
+      "hash" : "62b71b11c58ed705714fa8ad11845d56e99f1d90b08655551cb3ba5756f8993f"
+    }
+  ]
+}
