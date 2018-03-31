@@ -93,8 +93,8 @@
 		B21509B1206F83EB0058C73A /* MVP */ = {
 			isa = PBXGroup;
 			children = (
-				B21509C9206F8AD30058C73A /* Sources */,
 				B21509C8206F8AAD0058C73A /* Resources */,
+				B21509C9206F8AD30058C73A /* Sources */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -121,8 +121,8 @@
 		B21509C9206F8AD30058C73A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B21509CB206F8B070058C73A /* UI */,
 				B21509CA206F8B000058C73A /* Common */,
+				B21509CB206F8B070058C73A /* UI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
