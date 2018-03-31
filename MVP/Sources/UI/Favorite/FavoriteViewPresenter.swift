@@ -22,6 +22,7 @@ protocol FavoritePresenter: class {
 final class FavoriteViewPresenter: FavoritePresenter {
   private var view: FavoriteView
   private var favorites: [Repository] = [] {
+    // お気に入りの一覧を保持しているfavorites: [GithubKit.Repository]が更新されると以下を実行
     didSet {
       view.reloadData()
     }

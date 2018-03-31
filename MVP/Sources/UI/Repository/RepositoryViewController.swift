@@ -28,6 +28,10 @@ final class RepositoryViewController: SFSafariViewController, RepositoryView {
   
   private let presenter: RepositoryPresenter
   
+  /*
+   presenterのviewがinitializerの引数に含まれていない理由としては,
+   repositoryとfavoritePresenterをViewControllerで保持せずに済むようにするため.
+   */
   init(repository: Repository,
        favoritePresenter: FavoritePresenter,
        entersReaderIfAvailable: Bool = true) {
@@ -49,10 +53,12 @@ final class RepositoryViewController: SFSafariViewController, RepositoryView {
     // Dispose of any resources that can be recreated.
   }
   
+  // お気に入りボタンが押された時の処理をpresenterに委譲
   @objc func favoriteButtonTap(_ sender: UIBarButtonItem) {
     presenter.favoriteButtonTap()
   }
   
+  // お気に入りボタンに表示する文字をセットする
   func updateFavoriteButtonTitle(_ title: String) {
     favoriteButtonItem.title = title
   }

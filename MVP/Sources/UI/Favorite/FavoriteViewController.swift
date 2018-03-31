@@ -34,6 +34,7 @@ final class FavoriteViewController: UIViewController, FavoriteView {
     
   }
   
+  // TableViewを更新
   func reloadData() {
     favoriteTableView.reloadData()
   }
