@@ -23,6 +23,8 @@
 		B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D1206F92C80058C73A /* FavoriteViewDataSource.swift */; };
 		B21509D5206FE6960058C73A /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D4206FE6960058C73A /* RepositoryViewController.swift */; };
 		B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D6206FE6A70058C73A /* RepositoryViewPresenter.swift */; };
+		B21509DA206FF4D20058C73A /* APISession+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D9206FF4D20058C73A /* APISession+extension.swift */; };
+		B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		B21509D1206F92C80058C73A /* FavoriteViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewDataSource.swift; sourceTree = "<group>"; };
 		B21509D4206FE6960058C73A /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		B21509D6206FE6A70058C73A /* RepositoryViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewPresenter.swift; sourceTree = "<group>"; };
+		B21509D9206FF4D20058C73A /* APISession+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APISession+extension.swift"; sourceTree = "<group>"; };
+		B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B21509B2206F83EB0058C73A /* AppDelegate.swift */,
+				B21509D8206FF4AB0058C73A /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -172,6 +177,15 @@
 				B21509D6206FE6A70058C73A /* RepositoryViewPresenter.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		B21509D8206FF4AB0058C73A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B21509D9206FF4D20058C73A /* APISession+extension.swift */,
+				B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +321,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21509CE206F92A80058C73A /* FavoriteViewController.swift in Sources */,
+				B21509DA206FF4D20058C73A /* APISession+extension.swift in Sources */,
+				B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */,
 				B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */,
 				B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */,
 				B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */,
