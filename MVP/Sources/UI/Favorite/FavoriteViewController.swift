@@ -26,6 +26,7 @@ final class FavoriteViewController: UIViewController, FavoriteView {
     
     title = "On Memory Favorite"
     
+    dataource.configure(with: favoriteTableView)
   }
   
   override func didReceiveMemoryWarning() {
@@ -34,8 +35,12 @@ final class FavoriteViewController: UIViewController, FavoriteView {
   }
   
   func reloadData() {
+    favoriteTableView.reloadData()
   }
   
   func showRepository(with repository: Repository) {
+    // RepositoryViewControllerを初期化し, navigationControllerでpushすることで遷移させる.
+    let vc =
+    navigationController?.pushViewController(vc, animated: true)
   }
 }

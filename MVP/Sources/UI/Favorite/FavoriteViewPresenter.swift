@@ -36,16 +36,16 @@ final class FavoriteViewPresenter: FavoritePresenter {
     return favorites.count
   }
   
+  // お気に入り登録しているところから指定のRepositoryを検索する
   func addFavorite(_ repository: Repository) {
-    // お気に入り登録しているところから指定のRepositoryを検索する
     if favorites.lazy.index(where: { $0.url == repository.url }) != nil {
       return
     }
     favorites.append(repository)
   }
   
+  // お気に入り登録しているところから指定のRepositoryを検索する
   func removeFavorite(_ repository: Repository) {
-     // お気に入り登録しているところから指定のRepositoryを検索する
     guard let index = favorites.lazy.index(where: { $0.url == repository.url}) else {
       return
     }

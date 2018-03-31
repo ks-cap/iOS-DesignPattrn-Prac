@@ -17,6 +17,7 @@ final class FavoriteViewDataSource: NSObject {
     self.presenter = presenter
   }
   
+  // tableViewの設定
   func configure(with tableView: UITableView) {
     tableView.delegate = self
     tableView.dataSource = self
@@ -32,7 +33,8 @@ extension FavoriteViewDataSource: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(RepositoryViewCell.self, for: indexPath)
-    let repository = presenter.
+    // お気に入り登録しているところから指定の配列番号のrepositoryを返す
+    let repository = presenter.favoriteRepository(at: indexPath.row)
     cell.configure(with: repository)
     
     return cell
@@ -46,10 +48,13 @@ extension FavoriteViewDataSource: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: false)
-    presenter
+    // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示
+    presenter.showFavoriteRepository(at: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let repository = presenter
+    // お気に入り登録しているところから指定の配列番号のrepositoryを返す
+    let repository = presenter.favoriteRepository(at: indexPath.row)
+    return RepositoryViewCell.calculateHeight(with: repository, and: tableView)
   }
 }
