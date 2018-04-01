@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="-470" y="-110"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="vqT-GF-XgX">
             <objects>
-                <viewController id="TQ2-05-h1w" sceneMemberID="viewController">
+                <viewController id="TQ2-05-h1w" customClass="SearchViewController" customModule="MVP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZgU-Hc-Fvf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,6 +137,11 @@
                         <viewLayoutGuide key="safeArea" id="tZD-2a-vCf"/>
                     </view>
                     <navigationItem key="navigationItem" id="wTG-wF-a7x"/>
+                    <connections>
+                        <outlet property="searchTableView" destination="05f-EO-2aq" id="Hxc-Mm-Ony"/>
+                        <outlet property="searchTableViewBottomConstraint" destination="0EA-e5-otL" id="PrU-cb-nKa"/>
+                        <outlet property="totalCountLabel" destination="C9U-zb-5qg" id="n5j-n2-18B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPt-Uo-Qbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

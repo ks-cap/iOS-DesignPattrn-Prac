@@ -32,7 +32,7 @@ final class RepositoryViewController: SFSafariViewController, RepositoryView {
    presenterのviewがinitializerの引数に含まれていない理由としては,
    repositoryとfavoritePresenterをViewControllerで保持せずに済むようにするため.
    */
-  init(repository: Repository,
+  init(repository: GithubKit.Repository,
        favoritePresenter: FavoritePresenter,
        entersReaderIfAvailable: Bool = true) {
     self.presenter = RepositoryViewPresenter(repository: repository,

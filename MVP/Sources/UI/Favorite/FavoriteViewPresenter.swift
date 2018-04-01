@@ -12,17 +12,17 @@ import GithubKit
 protocol FavoritePresenter: class {
   init(view: FavoriteView)
   var numberOfFavorites: Int { get }
-  func addFavorite(_ repository: Repository)
-  func removeFavorite(_ repository: Repository)
-  func favoriteRepository(at index: Int) -> Repository
+  func addFavorite(_ repository: GithubKit.Repository)
+  func removeFavorite(_ repository: GithubKit.Repository)
+  func favoriteRepository(at index: Int) -> GithubKit.Repository
   func showFavoriteRepository(at index: Int)
-  func contains(_ repository: Repository) -> Bool
+  func contains(_ repository: GithubKit.Repository) -> Bool
 }
 
 final class FavoriteViewPresenter: FavoritePresenter {
   private var view: FavoriteView
-  private var favorites: [Repository] = [] {
-    // お気に入りの一覧を保持しているfavorites: [GithubKit.Repository]が更新されると以下を実行
+  // お気に入りの一覧を保持しているfavorites: [GithubKit.Repository]が更新されると以下を実行
+  private var favorites: [GithubKit.Repository] = [] {
     didSet {
       view.reloadData()
     }
@@ -38,7 +38,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
   }
   
   // お気に入り登録しているところから指定のRepositoryを検索する
-  func addFavorite(_ repository: Repository) {
+  func addFavorite(_ repository: GithubKit.Repository) {
     if favorites.lazy.index(where: { $0.url == repository.url }) != nil {
       return
     }
@@ -46,7 +46,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
   }
   
   // お気に入り登録しているところから指定のRepositoryを検索する
-  func removeFavorite(_ repository: Repository) {
+  func removeFavorite(_ repository: GithubKit.Repository) {
     guard let index = favorites.lazy.index(where: { $0.url == repository.url}) else {
       return
     }
@@ -54,7 +54,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
   }
   
   // お気に入り登録しているところから指定の配列番号のrepositoryを返す
-  func favoriteRepository(at index: Int) -> Repository {
+  func favoriteRepository(at index: Int) -> GithubKit.Repository {
     return favorites[index]
   }
   
@@ -65,7 +65,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
   }
   
   // お気に入り登録しているところから指定のRepositoryが含まれているかチェック
-  func contains(_ repository: Repository) -> Bool {
+  func contains(_ repository: GithubKit.Repository) -> Bool {
     //  含まれていたらtrueを返す
     return favorites.lazy.index { $0.url == repository.url } != nil
   }

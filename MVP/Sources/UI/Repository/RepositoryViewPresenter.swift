@@ -9,7 +9,7 @@
 import GithubKit
 
 protocol RepositoryPresenter: class {
-  init(repository: Repository, favoritePresenter: FavoritePresenter)
+  init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter)
   var view: RepositoryView { get set }
   var favoriteButtonTitle: String { get }
   func favoriteButtonTap()
@@ -18,9 +18,9 @@ protocol RepositoryPresenter: class {
 class RepositoryViewPresenter: RepositoryPresenter {
   var view: RepositoryView
   private let favoritePresenter: FavoritePresenter
-  private let repository: Repository
+  private let repository: GithubKit.Repository
   
-  init(repository: Repository, favoritePresenter: FavoritePresenter) {
+  required init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter) {
     self.repository = repository
     self.favoritePresenter = favoritePresenter
   }

@@ -25,6 +25,12 @@
 		B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D6206FE6A70058C73A /* RepositoryViewPresenter.swift */; };
 		B21509DA206FF4D20058C73A /* APISession+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509D9206FF4D20058C73A /* APISession+extension.swift */; };
 		B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */; };
+		B21509DF2070A3B90058C73A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509DE2070A3B80058C73A /* SearchViewController.swift */; };
+		B21509E12070A3CC0058C73A /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E02070A3CC0058C73A /* SearchViewPresenter.swift */; };
+		B21509E42070A7A40058C73A /* UIKeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E32070A7A40058C73A /* UIKeyboardInfo.swift */; };
+		B21509E62070A7D70058C73A /* UIKeyboardWillHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E52070A7D70058C73A /* UIKeyboardWillHide.swift */; };
+		B21509E82070A7EC0058C73A /* UIKeyboardWillShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */; };
+		B21509EA2070B2120058C73A /* SearchViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E92070B2120058C73A /* SearchViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		B21509D6206FE6A70058C73A /* RepositoryViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewPresenter.swift; sourceTree = "<group>"; };
 		B21509D9206FF4D20058C73A /* APISession+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APISession+extension.swift"; sourceTree = "<group>"; };
 		B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+extension.swift"; sourceTree = "<group>"; };
+		B21509DE2070A3B80058C73A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B21509E02070A3CC0058C73A /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
+		B21509E32070A7A40058C73A /* UIKeyboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardInfo.swift; sourceTree = "<group>"; };
+		B21509E52070A7D70058C73A /* UIKeyboardWillHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillHide.swift; sourceTree = "<group>"; };
+		B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillShow.swift; sourceTree = "<group>"; };
+		B21509E92070B2120058C73A /* SearchViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B21509B2206F83EB0058C73A /* AppDelegate.swift */,
+				B21509E22070A7920058C73A /* NotieObserver */,
 				B21509D8206FF4AB0058C73A /* Extension */,
 			);
 			path = Common;
@@ -153,8 +166,9 @@
 		B21509CB206F8B070058C73A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B21509D3206FE6710058C73A /* Repository */,
+				B21509DD2070A3850058C73A /* Search */,
 				B21509CC206F927F0058C73A /* Favorite */,
+				B21509D3206FE6710058C73A /* Repository */,
 				B21509B6206F83EB0058C73A /* Main.storyboard */,
 			);
 			path = UI;
@@ -186,6 +200,26 @@
 				B21509DB206FF56C0058C73A /* NSObjectProtocol+extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B21509DD2070A3850058C73A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B21509DE2070A3B80058C73A /* SearchViewController.swift */,
+				B21509E02070A3CC0058C73A /* SearchViewPresenter.swift */,
+				B21509E92070B2120058C73A /* SearchViewDataSource.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B21509E22070A7920058C73A /* NotieObserver */ = {
+			isa = PBXGroup;
+			children = (
+				B21509E32070A7A40058C73A /* UIKeyboardInfo.swift */,
+				B21509E52070A7D70058C73A /* UIKeyboardWillHide.swift */,
+				B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */,
+			);
+			path = NotieObserver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,13 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21509E62070A7D70058C73A /* UIKeyboardWillHide.swift in Sources */,
+				B21509EA2070B2120058C73A /* SearchViewDataSource.swift in Sources */,
 				B21509CE206F92A80058C73A /* FavoriteViewController.swift in Sources */,
 				B21509DA206FF4D20058C73A /* APISession+extension.swift in Sources */,
+				B21509E42070A7A40058C73A /* UIKeyboardInfo.swift in Sources */,
 				B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */,
+				B21509DF2070A3B90058C73A /* SearchViewController.swift in Sources */,
 				B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */,
+				B21509E12070A3CC0058C73A /* SearchViewPresenter.swift in Sources */,
 				B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */,
 				B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */,
 				B21509B3206F83EB0058C73A /* AppDelegate.swift in Sources */,
+				B21509E82070A7EC0058C73A /* UIKeyboardWillShow.swift in Sources */,
 				B21509D5206FE6960058C73A /* RepositoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
