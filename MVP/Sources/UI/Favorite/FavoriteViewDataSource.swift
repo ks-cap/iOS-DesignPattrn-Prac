@@ -11,6 +11,7 @@ import Foundation
 import GithubKit
 
 final class FavoriteViewDataSource: NSObject {
+  // 自身(Favorite)のPresenter
   fileprivate let presenter: FavoritePresenter
   
   init(presenter: FavoritePresenter) {

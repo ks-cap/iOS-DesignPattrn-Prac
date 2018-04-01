@@ -7,9 +7,25 @@
 //
 
 import UIKit
+import Foundation
+import GithubKit
 
 final class SearchViewDataSource: NSObject {
-
+  // 自身(Search)のPresenter
+  fileprivate let presenter: SearchPresenter
+  
+  init(presenter: SearchPresenter) {
+    self.presenter = presenter
+  }
+  
+  // tableViewの設定
+  func configure(with tableView: UITableView) {
+    tableView.delegate = self
+    tableView.dataSource = self
+    
+    tableView.register(UserViewCell.self)
+    tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: UITableViewHeaderFooterView.className)
+  }
 }
 
 extension SearchViewDataSource: UITableViewDataSource {
@@ -18,7 +34,7 @@ extension SearchViewDataSource: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    <#code#>
+    return presenter.numberOfUsers
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

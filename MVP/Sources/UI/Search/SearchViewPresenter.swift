@@ -7,15 +7,37 @@
 //
 
 import Foundation
+import GithubKit
 
 protocol SearchPresenter {
   init(view: SearchView)
+  var numberOfUsers: Int { get }
 }
 
-class SearchViewPresenter: SearchPresenter {
+final class SearchViewPresenter: SearchPresenter {
   private var view: SearchView
+  private var totalCount: Int = 0 {
+    didSet {
+      DispatchQueue.main.async { [weak self] in
+        guard let strongSelf = self else { return }
+        strongSelf.view.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
+      }
+    }
+  }
+  
+  private var users: [GithubKit.User] = [] {
+    didSet {
+      DispatchQueue.main.async { [weak self] in
+        guard let strongSelf = self else { return }
+        strongSelf.view.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
+      }
+    }
+  }
+  
   required init(view: SearchView) {
     self.view = view
   }
-  
+  var numberOfUsers: Int {
+    return users.count
+  }
 }
