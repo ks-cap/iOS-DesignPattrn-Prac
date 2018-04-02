@@ -33,6 +33,7 @@
 		B21509EA2070B2120058C73A /* SearchViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E92070B2120058C73A /* SearchViewDataSource.swift */; };
 		B21509ED207201E80058C73A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509EC207201E80058C73A /* LoadingView.xib */; };
 		B21509EF207202390058C73A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509EE207202390058C73A /* LoadingView.swift */; };
+		B21509F2207299000058C73A /* UserRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F1207299000058C73A /* UserRepositoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B21509E92070B2120058C73A /* SearchViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataSource.swift; sourceTree = "<group>"; };
 		B21509EC207201E80058C73A /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		B21509EE207202390058C73A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B21509F1207299000058C73A /* UserRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				B21509DD2070A3850058C73A /* Search */,
 				B21509CC206F927F0058C73A /* Favorite */,
 				B21509D3206FE6710058C73A /* Repository */,
+				B21509F0207298CF0058C73A /* UserRepository */,
 				B21509B6206F83EB0058C73A /* Main.storyboard */,
 			);
 			path = UI;
@@ -234,6 +237,14 @@
 				B21509EE207202390058C73A /* LoadingView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		B21509F0207298CF0058C73A /* UserRepository */ = {
+			isa = PBXGroup;
+			children = (
+				B21509F1207299000058C73A /* UserRepositoryViewController.swift */,
+			);
+			path = UserRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +387,7 @@
 				B21509E42070A7A40058C73A /* UIKeyboardInfo.swift in Sources */,
 				B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */,
 				B21509DF2070A3B90058C73A /* SearchViewController.swift in Sources */,
+				B21509F2207299000058C73A /* UserRepositoryViewController.swift in Sources */,
 				B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */,
 				B21509EF207202390058C73A /* LoadingView.swift in Sources */,
 				B21509E12070A3CC0058C73A /* SearchViewPresenter.swift in Sources */,

@@ -18,7 +18,9 @@ final class FavoriteViewController: UIViewController, FavoriteView {
   
   @IBOutlet weak var favoriteTableView: UITableView!
   
+  // 自身のpresenterを保持
   private lazy var presenter: FavoritePresenter = FavoriteViewPresenter(view: self)
+  // 自身の(tableView)dataSourceを保持
   private lazy var dataSource: FavoriteViewDataSource = .init(presenter: self.presenter)
   
   override func viewDidLoad() {
@@ -31,7 +33,6 @@ final class FavoriteViewController: UIViewController, FavoriteView {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    
   }
   
   // TableViewを更新

@@ -20,11 +20,11 @@ protocol FavoritePresenter: class {
 }
 
 final class FavoriteViewPresenter: FavoritePresenter {
-  private var view: FavoriteView
+  private var view: FavoriteView?
   // お気に入りの一覧を保持しているfavorites: [GithubKit.Repository]が更新されると以下を実行
   private var favorites: [GithubKit.Repository] = [] {
     didSet {
-      view.reloadData()
+      view?.reloadData()
     }
   }
   
@@ -61,7 +61,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
   // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示（viewに委譲）
   func showFavoriteRepository(at index: Int) {
     let repository = favorites[index]
-    view.showRepository(with: repository)
+    view?.showRepository(with: repository)
   }
   
   // お気に入り登録しているところから指定のRepositoryが含まれているかチェック

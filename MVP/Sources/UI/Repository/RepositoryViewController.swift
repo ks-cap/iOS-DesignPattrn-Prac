@@ -26,6 +26,7 @@ final class RepositoryViewController: SFSafariViewController, RepositoryView {
       action: #selector(RepositoryViewController.favoriteButtonTap(_:)))
   }()
   
+  // 自身のpresenterを保持
   private let presenter: RepositoryPresenter
   
   /*

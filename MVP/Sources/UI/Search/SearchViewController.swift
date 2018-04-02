@@ -24,29 +24,48 @@ final class SearchViewController: UIViewController, SearchView {
   @IBOutlet weak var searchTableView: UITableView!
   @IBOutlet weak var searchTableViewBottomConstraint: NSLayoutConstraint!
   
-  fileprivate let loadingView = LoadingView.makeFromNib()
-  
   private (set) lazy var searchBar: UISearchBar = {
     let searchBar = UISearchBar(frame: .zero)
     searchBar.delegate = self
     return searchBar
   }()
   
-  private let favoritePresenter: FavoritePresenter
-  
+  // ロード画面に表示するactivityIndicator
+  fileprivate let loadingView = LoadingView.makeFromNib()
+  // FavoritePresenterを参照
+  private let favoritePresenter: FavoritePresenter?
+  // 自身のpresenterを保持
   private lazy var presenter: SearchPresenter = SearchViewPresenter(view: self)
+  // 自身のdataSourceを保持
+  private lazy var dataSource: SearchViewDataSource = .init(presenter: self.presenter)
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationItem.titleView = searchBar
+    searchBar.placeholder = "Input user name"
     
+    dataSource.configure(with: searchTableView)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    presenter.viewWillAppear()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    if searchBar.isFirstResponder {
+      // キーボードを非表示
+      searchBar.resignFirstResponder()
+    }
+    presenter.viewWillDisappear()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
   func reloadData() {
     searchTableView.reloadData()
   }
@@ -71,13 +90,13 @@ final class SearchViewController: UIViewController, SearchView {
                    animations: { self.view.layoutIfNeeded() },
                    completion: nil)
   }
-
+  
   // 画面遷移
   func showUserRepository(with user: User) {
-    guard let presenter = favoritePresenter else {
-      return
-    }
-    let vc = User
+    guard let presenter = favoritePresenter else { return }
+//    let vc = User
+    // 画面を遷移
+//    navigationController?.pushViewController(vc, animated: true)
   }
   
   func updateTotalCountLabel(_ countText: String) {

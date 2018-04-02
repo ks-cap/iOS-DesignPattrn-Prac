@@ -19,13 +19,20 @@ protocol SearchPresenter {
   func showUser(at index: Int)
   func setIsReachedBottom(_ isReachedBottom: Bool)
   func showLoadingView(on view: UIView)
+  func viewWillAppear()
+  func viewWillDisappear()
 }
 
 final class SearchViewPresenter: SearchPresenter {
-  private var view: SearchView
+  
+  required init(view: SearchView) {
+    self.view = view
+  }
+  
+  private var view: SearchView?
   private var task: URLSessionTask? = nil
   private var pageInfo: GithubKit.PageInfo? = nil
-  
+  private var pool = NoticeObserveKit.NoticeObserverPool()
   // 検索文字
   private var query: String = "" {
     didSet {
@@ -42,18 +49,13 @@ final class SearchViewPresenter: SearchPresenter {
     }
   }
   
-  
-  required init(view: SearchView) {
-    self.view = view
-  }
-  
   // 検索結果のユーザ数
   private var totalCount: Int = 0 {
     didSet {
       DispatchQueue.main.async { [weak self] in
         guard let strongSelf = self else { return }
-        strongSelf.view.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
-        strongSelf.view.reloadData()
+        strongSelf.view?.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
+        strongSelf.view?.reloadData()
       }
     }
   }
@@ -63,8 +65,8 @@ final class SearchViewPresenter: SearchPresenter {
     didSet {
       DispatchQueue.main.async { [weak self] in
         guard let strongSelf = self else { return }
-        strongSelf.view.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
-        strongSelf.view.reloadData()
+        strongSelf.view?.updateTotalCountLabel("\(strongSelf.users.count)/\(strongSelf.totalCount)")
+        strongSelf.view?.reloadData()
       }
     }
   }
@@ -126,6 +128,7 @@ final class SearchViewPresenter: SearchPresenter {
     }
   }
   
+  // ユーザ情報を返す
   func user(at index: Int) -> User {
     return users[index]
   }
@@ -169,7 +172,7 @@ final class SearchViewPresenter: SearchPresenter {
   
   func showUser(at index: Int) {
     let user = users[index]
-    view.showUserRepository(with: user)
+    view?.showUserRepository(with: user)
   }
   
   func setIsReachedBottom(_ isReachedBottom: Bool) {
@@ -177,6 +180,22 @@ final class SearchViewPresenter: SearchPresenter {
   }
   
   func showLoadingView(on view: UIView) {
-    self.view.updateLoadingView(with: view, isLoading: isFetchingUsers)
+    self.view?.updateLoadingView(with: view, isLoading: isFetchingUsers)
+  }
+  
+  func viewWillAppear() {
+    UIKeyboardWillShow.observe { [weak self] in
+      self?.view?.KeyboardWillShow(with: $0)
+    }
+    .disposed(by: pool)
+    
+    UIKeyboardWillHide.observe { [weak self] in
+      self?.view?.KeyboardWillHide(with: $0)
+    }
+    .disposed(by: pool)
+  }
+  
+  func viewWillDisappear() {
+    pool = NoticeObserveKit.NoticeObserverPool()
   }
 }
