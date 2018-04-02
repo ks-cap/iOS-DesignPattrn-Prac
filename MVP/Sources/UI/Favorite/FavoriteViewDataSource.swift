@@ -49,7 +49,7 @@ extension FavoriteViewDataSource: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: false)
-    // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示
+    // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示（presenterに委譲）
     presenter.showFavoriteRepository(at: indexPath.row)
   }
   

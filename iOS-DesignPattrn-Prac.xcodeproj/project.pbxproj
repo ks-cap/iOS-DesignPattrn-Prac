@@ -31,6 +31,8 @@
 		B21509E62070A7D70058C73A /* UIKeyboardWillHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E52070A7D70058C73A /* UIKeyboardWillHide.swift */; };
 		B21509E82070A7EC0058C73A /* UIKeyboardWillShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */; };
 		B21509EA2070B2120058C73A /* SearchViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509E92070B2120058C73A /* SearchViewDataSource.swift */; };
+		B21509ED207201E80058C73A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509EC207201E80058C73A /* LoadingView.xib */; };
+		B21509EF207202390058C73A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509EE207202390058C73A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		B21509E52070A7D70058C73A /* UIKeyboardWillHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillHide.swift; sourceTree = "<group>"; };
 		B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillShow.swift; sourceTree = "<group>"; };
 		B21509E92070B2120058C73A /* SearchViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataSource.swift; sourceTree = "<group>"; };
+		B21509EC207201E80058C73A /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		B21509EE207202390058C73A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 		B21509CB206F8B070058C73A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B21509EB207201610058C73A /* Common */,
 				B21509DD2070A3850058C73A /* Search */,
 				B21509CC206F927F0058C73A /* Favorite */,
 				B21509D3206FE6710058C73A /* Repository */,
@@ -220,6 +225,15 @@
 				B21509E72070A7EC0058C73A /* UIKeyboardWillShow.swift */,
 			);
 			path = NotieObserver;
+			sourceTree = "<group>";
+		};
+		B21509EB207201610058C73A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B21509EC207201E80058C73A /* LoadingView.xib */,
+				B21509EE207202390058C73A /* LoadingView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21509BD206F83EB0058C73A /* LaunchScreen.storyboard in Resources */,
+				B21509ED207201E80058C73A /* LoadingView.xib in Resources */,
 				B21509BA206F83EB0058C73A /* Assets.xcassets in Resources */,
 				B21509B8206F83EB0058C73A /* Main.storyboard in Resources */,
 			);
@@ -362,6 +377,7 @@
 				B21509DC206FF56C0058C73A /* NSObjectProtocol+extension.swift in Sources */,
 				B21509DF2070A3B90058C73A /* SearchViewController.swift in Sources */,
 				B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */,
+				B21509EF207202390058C73A /* LoadingView.swift in Sources */,
 				B21509E12070A3CC0058C73A /* SearchViewPresenter.swift in Sources */,
 				B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */,
 				B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */,

@@ -23,7 +23,7 @@ final class SearchViewDataSource: NSObject {
     tableView.delegate = self
     tableView.dataSource = self
     
-    tableView.register(UserViewCell.self)
+    tableView.register(GithubKit.UserViewCell.self)
     tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: UITableViewHeaderFooterView.className)
   }
 }
@@ -34,11 +34,28 @@ extension SearchViewDataSource: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // 検索でヒットしたユーザ数を返す
     return presenter.numberOfUsers
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    <#code#>
+    let cell = tableView.dequeue(GithubKit.UserViewCell.self, for: indexPath)
+    // ユーザ情報を取得
+    let user = presenter.user(at: indexPath.row)
+    cell.configure(with: user)
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return nil
+  }
+
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: UITableViewHeaderFooterView.className) else {
+      return nil
+    }
+    presenter.showLoadingView(on: view)
+    return view
   }
 }
 

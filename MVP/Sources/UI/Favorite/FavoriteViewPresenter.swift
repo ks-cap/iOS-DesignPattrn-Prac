@@ -58,7 +58,7 @@ final class FavoriteViewPresenter: FavoritePresenter {
     return favorites[index]
   }
   
-  // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示
+  // お気に入り登録しているところから指定の配列番号のrepositoryの画面を表示（viewに委譲）
   func showFavoriteRepository(at index: Int) {
     let repository = favorites[index]
     view.showRepository(with: repository)

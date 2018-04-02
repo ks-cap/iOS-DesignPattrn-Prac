@@ -12,6 +12,9 @@ import GithubKit
 protocol SearchPresenter {
   init(view: SearchView)
   var numberOfUsers: Int { get }
+  func user(at index: Int) -> User
+  var isFetchingUsers: Bool { get }
+  func showLoadingView(on view: UIView)
 }
 
 final class SearchViewPresenter: SearchPresenter {
@@ -39,5 +42,21 @@ final class SearchViewPresenter: SearchPresenter {
   }
   var numberOfUsers: Int {
     return users.count
+  }
+  
+  func user(at index: Int) -> User {
+    return users[index]
+  }
+  
+  var isFetchingUsers = false {
+    didSet {
+      DispatchQueue.main.async { [weak self] in
+        self?.view.reloadData()
+      }
+    }
+  }
+  
+  func showLoadingView(on view: UIView) {
+    self.view.updateLoadingView(with: view, isLoading: isFetchingUsers)
   }
 }
