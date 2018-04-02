@@ -11,13 +11,18 @@ import GithubKit
 
 protocol UserRepositoryView: class {
   func reloadData()
-  
+  func showRepository(with repository: GithubKit.Repository)
+  func updateTotalCount(_ countText: String)
+  func updateLoadingView(with view: UIView, isLoading: Bool)
 }
 
-class UserRepositoryViewController: UIViewController {
+class UserRepositoryViewController: UIViewController, UserRepositoryView {
 
+  @IBOutlet weak var repositoryTableView: UITableView!
+  @IBOutlet weak var totalCountLabel: UILabel!
+  
   // ロード画面に表示するactivityIndicator
-  private let loadView = LoadingView.makeFromNib()
+  private let loadingView = LoadingView.makeFromNib()
   // FavoritePresenterを参照
   private let favoritePresenter: FavoritePresenter
   
@@ -42,4 +47,22 @@ class UserRepositoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+  func reloadData() {
+    repositoryTableView.reloadData()
+  }
+  
+  func showRepository(with repository: Repository) {
+    // レポジトリ詳細画面に遷移
+    let vc = RepositoryViewController(repository: repository, favoritePresenter: favoritePresenter)
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  func updateTotalCount(_ countText: String) {
+    self.totalCountLabel.text = countText
+  }
+  
+  func updateLoadingView(with view: UIView, isLoading: Bool) {
+    loadingView.removeFromSuperview()
+    loadingView.isLoading = isLoading
+    loadingView.add(to: view)
+  }
 }
