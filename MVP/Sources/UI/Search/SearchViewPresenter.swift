@@ -75,14 +75,36 @@ final class SearchViewPresenter: SearchPresenter {
   }
   
   /*
-   前回のイベント発生後から
-   一定時間内に同じイベントが発生するごとに処理の実行を一定時間遅延させ,
-   一定時間イベントが発生しなければ処理を実行する.
+   debounce
+    - 前回のイベント発生後から
+    - 一定時間内に同じイベントが発生するごとに処理の実行を一定時間遅延させ,
+    - 一定時間イベントが発生しなければ処理を実行する.
+   ⬇︎
+   サーバー負荷なども考慮して, APIを叩く頻度を絞ったりすることが可能
    */
   private let debounce: (_ action: @escaping () -> ()) -> () = {
-    // 前回に実行された時間を保持
+    // 前回に実行された時間を保持するlastFireTimeを定義し、現在の時刻を代入
     var lastFireTime: DispatchTime = .now()
+    // 遅延時間
+    let delay: DispatchTimeInterval = .microseconds(500)
     
+    return { [delay] action in
+      let deadline: DispatchTime = .now() + delay
+      // lastFireTimeに現在時刻を再代入(throttleとの違い)
+      lastFireTime = .now()
+      // グローバルキューは現在実行中の処理の終了を待たずに次の処理を並列して実行する (引数の記述がない際global(qos: .default)）
+      DispatchQueue.global().asyncAfter(deadline: deadline) { [delay] in
+        // 現在時刻と最後に実行された時刻+delayの時刻を比較
+        let now: DispatchTime = .now()
+        let when: DispatchTime = lastFireTime + delay
+        // 現在時刻の方が進んでいた場合に、lastFireTimeを更新し、引数で受け取っていたactionを実行
+        if now < when { return }
+        lastFireTime = .now()
+        DispatchQueue.main.async {
+          action()
+        }
+      }
+    }
   }()
   
   var isFetchingUsers = false {
@@ -106,6 +128,7 @@ final class SearchViewPresenter: SearchPresenter {
   func search(queryIfNeeded query: String) {
     <#code#>
   }
+  
   private func fetchUsers() {
     
   }
