@@ -49,7 +49,7 @@ extension SearchViewDataSource: UITableViewDataSource {
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     return nil
   }
-
+  
   func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: UITableViewHeaderFooterView.className) else {
       return nil
@@ -61,6 +61,23 @@ extension SearchViewDataSource: UITableViewDataSource {
 
 extension SearchViewDataSource: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    presenter
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    <#code#>
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return .leastNormalMagnitude
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return presenter.isFetchingUsers ? LoadingView.defaultHeight : .leastNormalMagnitude
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
     <#code#>
   }
 }

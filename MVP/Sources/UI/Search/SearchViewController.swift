@@ -24,6 +24,8 @@ final class SearchViewController: UIViewController, SearchView {
   @IBOutlet weak var searchTableView: UITableView!
   @IBOutlet weak var searchTableViewBottomConstraint: NSLayoutConstraint!
   
+  fileprivate let loadingView = LoadingView.makeFromNib()
+  
   private (set) lazy var searchBar: UISearchBar = {
     let searchBar = UISearchBar(frame: .zero)
     searchBar.delegate = self
@@ -83,7 +85,9 @@ final class SearchViewController: UIViewController, SearchView {
   }
   
   func updateLoadingView(with view: UIView, isLoading: Bool) {
-    <#code#>
+    loadingView.removeFromSuperview()
+    loadingView.isLoading = isLoading
+    loadingView.add(to: view)
   }
   
   func showEmptyTokenError() {

@@ -16,6 +16,7 @@ final class LoadingView: UIView, Nibable {
   
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
+  // 検索中かどうか判断しその結果に応じてactivityIndicatorを表示するかどうかを決める
   var isLoading: Bool = false {
     didSet {
       DispatchQueue.main.async { [weak self] in
