@@ -34,7 +34,7 @@ final class SearchViewController: UIViewController, SearchView {
   
   private let favoritePresenter: FavoritePresenter
   
-  private lazy var presenter: SearchPresenter
+  private lazy var presenter: SearchPresenter = SearchViewPresenter(view: self)
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,5 +95,25 @@ final class SearchViewController: UIViewController, SearchView {
                                   message: "\"Github Personal Access Token\" is Required.\n Please set it in ApiSession.extension.swift!",
                                   preferredStyle: .alert)
     present(alert, animated: false, completion: nil)
+  }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    searchBar.showsCancelButton = false
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    searchBar.showsCancelButton = false
+  }
+  
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = false
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    presenter.search(queryIfNeeded: searchText)
   }
 }
