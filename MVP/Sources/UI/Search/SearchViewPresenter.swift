@@ -27,7 +27,7 @@ final class SearchViewPresenter: SearchPresenter {
   
   private var query: String = "" {
     didSet {
-      // 更新されたら
+      // 検索欄で文字が更新され, debounceで処理を施したのち
       if query != oldValue {
         users.removeAll()
         pageInfo = nil
@@ -35,6 +35,7 @@ final class SearchViewPresenter: SearchPresenter {
       }
       task?.cancel()
       task = nil
+      // ユーザ情報を取りに行く
       fetchUsers()
     }
   }
@@ -69,18 +70,19 @@ final class SearchViewPresenter: SearchPresenter {
   private var isReachedBottom: Bool = false {
     didSet {
       if isReachedBottom && isReachedBottom != oldValue {
-        
+        fetchUsers()
       }
     }
   }
   
   /*
-   debounce
+   debounce:
     - 前回のイベント発生後から
     - 一定時間内に同じイベントが発生するごとに処理の実行を一定時間遅延させ,
     - 一定時間イベントが発生しなければ処理を実行する.
-   ⬇︎
-   サーバー負荷なども考慮して, APIを叩く頻度を絞ったりすることが可能
+    ↓
+   メリット:
+    - サーバー負荷なども考慮して, APIを叩く頻度を絞ったりすることが可能
    */
   private let debounce: (_ action: @escaping () -> ()) -> () = {
     // 前回に実行された時間を保持するlastFireTimeを定義し、現在の時刻を代入
@@ -126,7 +128,10 @@ final class SearchViewPresenter: SearchPresenter {
   
   // 検索するためのクエリ文字を抽出
   func search(queryIfNeeded query: String) {
-    <#code#>
+    // debounceを利用し, APIを叩く頻度を絞る
+    debounce{ [weak self] in
+      self?.query = query
+    }
   }
   
   private func fetchUsers() {
