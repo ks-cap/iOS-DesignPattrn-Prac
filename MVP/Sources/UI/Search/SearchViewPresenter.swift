@@ -8,6 +8,7 @@
 
 import Foundation
 import GithubKit
+import NoticeObserveKit
 
 protocol SearchPresenter {
   init(view: SearchView)
@@ -25,6 +26,7 @@ final class SearchViewPresenter: SearchPresenter {
   private var task: URLSessionTask? = nil
   private var pageInfo: GithubKit.PageInfo? = nil
   
+  // 検索文字
   private var query: String = "" {
     didSet {
       // 検索欄で文字が更新され, debounceで処理を施したのち
@@ -69,6 +71,7 @@ final class SearchViewPresenter: SearchPresenter {
   
   private var isReachedBottom: Bool = false {
     didSet {
+      // 一番下までスクロールされたら
       if isReachedBottom && isReachedBottom != oldValue {
         fetchUsers()
       }
@@ -77,12 +80,12 @@ final class SearchViewPresenter: SearchPresenter {
   
   /*
    debounce:
-    - 前回のイベント発生後から
-    - 一定時間内に同じイベントが発生するごとに処理の実行を一定時間遅延させ,
-    - 一定時間イベントが発生しなければ処理を実行する.
-    ↓
+   - 前回のイベント発生後から
+   - 一定時間内に同じイベントが発生するごとに処理の実行を一定時間遅延させ,
+   - 一定時間イベントが発生しなければ処理を実行する.
+   ↓
    メリット:
-    - サーバー負荷なども考慮して, APIを叩く頻度を絞ったりすることが可能
+   - サーバー負荷なども考慮して, APIを叩く頻度を絞ったりすることが可能
    */
   private let debounce: (_ action: @escaping () -> ()) -> () = {
     // 前回に実行された時間を保持するlastFireTimeを定義し、現在の時刻を代入
@@ -109,17 +112,18 @@ final class SearchViewPresenter: SearchPresenter {
     }
   }()
   
+  // tableViewに表示するcellの数（検索結果の数）を指定
+  var numberOfUsers: Int {
+    return users.count
+  }
+  
+  // 検索結果を取りに行っているかどうか判別
   var isFetchingUsers = false {
     didSet {
       DispatchQueue.main.async { [weak self] in
         self?.view.reloadData()
       }
     }
-  }
-  
-  
-  var numberOfUsers: Int {
-    return users.count
   }
   
   func user(at index: Int) -> User {
@@ -129,13 +133,38 @@ final class SearchViewPresenter: SearchPresenter {
   // 検索するためのクエリ文字を抽出
   func search(queryIfNeeded query: String) {
     // debounceを利用し, APIを叩く頻度を絞る
-    debounce{ [weak self] in
+    debounce { [weak self] in
       self?.query = query
     }
   }
   
+  // ユーザ情報を取得
   private func fetchUsers() {
+    if query.isEmpty || task != nil { return }
+    if let pageInfo = pageInfo, !pageInfo.hasNextPage || pageInfo.endCursor == nil { return }
+    // 検索結果を取得中と変数に記録
+    isFetchingUsers = true
     
+    let request = GithubKit.SearchUserRequest(query: query, after: pageInfo?.endCursor)
+    self.task = ApiSession.shared.send(request) { [weak self] result in
+      switch result {
+      case .success(let value):
+        self?.pageInfo = value.pageInfo
+        // .append(contentsOf:) -> 配列に要素を複数まとめて追加
+        self?.users.append(contentsOf: value.nodes)
+        self?.totalCount = value.totalCount
+      case .failure(let error):
+        if case .emptyToken? = (error as? ApiSession.Error) {
+          DispatchQueue.main.async {
+            // エラーアラートを表示
+            self?.view.showEmptyTokenError()
+          }
+        }
+      }
+      self?.isFetchingUsers = false
+      self?.task = nil
+    }
+
   }
   
   func showUser(at index: Int) {

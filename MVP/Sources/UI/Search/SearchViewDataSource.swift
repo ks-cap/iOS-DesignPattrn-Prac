@@ -79,6 +79,7 @@ extension SearchViewDataSource: UITableViewDelegate {
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    // 一番下までスクロールされているか判定
     let maxScrollDistance = max(0, scrollView.contentSize.height - scrollView.bounds.size.height)
     presenter.setIsReachedBottom(maxScrollDistance <= scrollView.contentOffset.y)
   }
