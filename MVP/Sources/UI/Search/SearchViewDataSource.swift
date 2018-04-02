@@ -62,11 +62,12 @@ extension SearchViewDataSource: UITableViewDataSource {
 extension SearchViewDataSource: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    presenter
+    presenter.showUser(at: indexPath.row)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    <#code#>
+    let user = presenter.user(at: indexPath.row)
+    return UserViewCell.calculateHeight(with: user, and: tableView)
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -78,6 +79,7 @@ extension SearchViewDataSource: UITableViewDelegate {
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    <#code#>
+    let maxScrollDistance = max(0, scrollView.contentSize.height - scrollView.bounds.size.height)
+    presenter.setIsReachedBottom(maxScrollDistance <= scrollView.contentOffset.y)
   }
 }

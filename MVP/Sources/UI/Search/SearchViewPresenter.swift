@@ -14,11 +14,18 @@ protocol SearchPresenter {
   var numberOfUsers: Int { get }
   func user(at index: Int) -> User
   var isFetchingUsers: Bool { get }
+  func showUser(at index: Int)
+  func setIsReachedBottom(_ isReachedBottom: Bool)
   func showLoadingView(on view: UIView)
 }
 
 final class SearchViewPresenter: SearchPresenter {
   private var view: SearchView
+  
+  required init(view: SearchView) {
+    self.view = view
+  }
+  
   private var totalCount: Int = 0 {
     didSet {
       DispatchQueue.main.async { [weak self] in
@@ -37,9 +44,18 @@ final class SearchViewPresenter: SearchPresenter {
     }
   }
   
-  required init(view: SearchView) {
-    self.view = view
+  private var isReachedBottom: Bool = false {
+    didSet {
+      if isReachedBottom && isReachedBottom != oldValue {
+        
+      }
+    }
   }
+  
+  private fetchUsers() {
+  
+  }
+
   var numberOfUsers: Int {
     return users.count
   }
@@ -48,12 +64,22 @@ final class SearchViewPresenter: SearchPresenter {
     return users[index]
   }
   
+  
   var isFetchingUsers = false {
     didSet {
       DispatchQueue.main.async { [weak self] in
         self?.view.reloadData()
       }
     }
+  }
+  
+  func showUser(at index: Int) {
+    let user = users[index]
+    view.showUserRepository(with: user)
+  }
+  
+  func setIsReachedBottom(_ isReachedBottom: Bool) {
+    self.isReachedBottom = isReachedBottom
   }
   
   func showLoadingView(on view: UIView) {
