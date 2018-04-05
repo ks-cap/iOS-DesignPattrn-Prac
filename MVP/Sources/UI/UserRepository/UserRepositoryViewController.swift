@@ -20,12 +20,13 @@ class UserRepositoryViewController: UIViewController, UserRepositoryView {
 
   @IBOutlet weak var repositoryTableView: UITableView!
   @IBOutlet weak var totalCountLabel: UILabel!
-  
   // ロード画面に表示するactivityIndicator
   private let loadingView = LoadingView.makeFromNib()
   // FavoritePresenterを参照
   private let favoritePresenter: FavoritePresenter
+  private let presenter: UserRepositoryPresenter
   
+  // イニシャライザ: 初期値代入
   init(user: GithubKit.User, favoritePresenter: FavoritePresenter) {
     self.favoritePresenter = favoritePresenter
     super.init(nibName: UserRepositoryViewController.className, bundle: nil)

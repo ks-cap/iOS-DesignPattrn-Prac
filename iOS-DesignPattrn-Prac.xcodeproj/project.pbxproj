@@ -34,6 +34,8 @@
 		B21509ED207201E80058C73A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509EC207201E80058C73A /* LoadingView.xib */; };
 		B21509EF207202390058C73A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509EE207202390058C73A /* LoadingView.swift */; };
 		B21509F2207299000058C73A /* UserRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F1207299000058C73A /* UserRepositoryViewController.swift */; };
+		B21509F6207667B30058C73A /* UserRepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509F5207667B30058C73A /* UserRepositoryViewController.xib */; };
+		B21509F820766A230058C73A /* UserRepositoryViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		B21509EC207201E80058C73A /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		B21509EE207202390058C73A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B21509F1207299000058C73A /* UserRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewController.swift; sourceTree = "<group>"; };
+		B21509F5207667B30058C73A /* UserRepositoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserRepositoryViewController.xib; sourceTree = "<group>"; };
+		B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				B21509F1207299000058C73A /* UserRepositoryViewController.swift */,
+				B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */,
+				B21509F5207667B30058C73A /* UserRepositoryViewController.xib */,
 			);
 			path = UserRepository;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			files = (
 				B21509BD206F83EB0058C73A /* LaunchScreen.storyboard in Resources */,
 				B21509ED207201E80058C73A /* LoadingView.xib in Resources */,
+				B21509F6207667B30058C73A /* UserRepositoryViewController.xib in Resources */,
 				B21509BA206F83EB0058C73A /* Assets.xcassets in Resources */,
 				B21509B8206F83EB0058C73A /* Main.storyboard in Resources */,
 			);
@@ -395,6 +402,7 @@
 				B21509D0206F92B80058C73A /* FavoriteViewPresenter.swift in Sources */,
 				B21509B3206F83EB0058C73A /* AppDelegate.swift in Sources */,
 				B21509E82070A7EC0058C73A /* UIKeyboardWillShow.swift in Sources */,
+				B21509F820766A230058C73A /* UserRepositoryViewPresenter.swift in Sources */,
 				B21509D5206FE6960058C73A /* RepositoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
