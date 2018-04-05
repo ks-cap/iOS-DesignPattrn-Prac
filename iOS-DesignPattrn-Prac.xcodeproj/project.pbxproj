@@ -36,6 +36,7 @@
 		B21509F2207299000058C73A /* UserRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F1207299000058C73A /* UserRepositoryViewController.swift */; };
 		B21509F6207667B30058C73A /* UserRepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509F5207667B30058C73A /* UserRepositoryViewController.xib */; };
 		B21509F820766A230058C73A /* UserRepositoryViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */; };
+		B21509FA207677CC0058C73A /* UserRepositoryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F9207677CC0058C73A /* UserRepositoryViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		B21509F1207299000058C73A /* UserRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewController.swift; sourceTree = "<group>"; };
 		B21509F5207667B30058C73A /* UserRepositoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserRepositoryViewController.xib; sourceTree = "<group>"; };
 		B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewPresenter.swift; sourceTree = "<group>"; };
+		B21509F9207677CC0058C73A /* UserRepositoryViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 			children = (
 				B21509F1207299000058C73A /* UserRepositoryViewController.swift */,
 				B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */,
+				B21509F9207677CC0058C73A /* UserRepositoryViewDataSource.swift */,
 				B21509F5207667B30058C73A /* UserRepositoryViewController.xib */,
 			);
 			path = UserRepository;
@@ -403,6 +406,7 @@
 				B21509B3206F83EB0058C73A /* AppDelegate.swift in Sources */,
 				B21509E82070A7EC0058C73A /* UIKeyboardWillShow.swift in Sources */,
 				B21509F820766A230058C73A /* UserRepositoryViewPresenter.swift in Sources */,
+				B21509FA207677CC0058C73A /* UserRepositoryViewDataSource.swift in Sources */,
 				B21509D5206FE6960058C73A /* RepositoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

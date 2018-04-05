@@ -14,6 +14,9 @@ protocol UserRepositoryPresenter {
   weak var view: UserRepositoryView? { get }
   var title: String { get }
   var isFetchingRepositories: Bool { get }
+  var numberOfRepositories: Int { get }
+  func repository(at index: Int) -> GithubKit.Repository
+  func showLoadingView(on view: UIView)
   func fetchRepositories()
 }
 
@@ -64,6 +67,20 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
   // タイトルを取得: VC
   var title: String {
     return "\(user.login)'s Repositories"
+  }
+  
+  // レポジトリの数を返す: DataSource
+  var numberOfRepositories: Int {
+    return repositories.count
+  }
+  
+  // 指定の要素のレポジトリを返す: DataSource
+  func repository(at index: Int) -> Repository {
+    return repositories[index]
+  }
+  
+  func showLoadingView(on view: UIView) {
+    self.view?.updateLoadingView(with: view, isLoading: isFetchingRepositories)
   }
   
   // 一ユーザのレポジトリをAPIを通じて取得: VC
