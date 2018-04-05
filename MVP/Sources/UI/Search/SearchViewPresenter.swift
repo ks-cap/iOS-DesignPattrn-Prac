@@ -123,7 +123,7 @@ final class SearchViewPresenter: SearchPresenter {
   var isFetchingUsers = false {
     didSet {
       DispatchQueue.main.async { [weak self] in
-        self?.view.reloadData()
+        self?.view?.reloadData()
       }
     }
   }
@@ -160,7 +160,7 @@ final class SearchViewPresenter: SearchPresenter {
         if case .emptyToken? = (error as? ApiSession.Error) {
           DispatchQueue.main.async {
             // エラーアラートを表示
-            self?.view.showEmptyTokenError()
+            self?.view?.showEmptyTokenError()
           }
         }
       }

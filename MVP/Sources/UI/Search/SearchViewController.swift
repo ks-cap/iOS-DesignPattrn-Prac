@@ -94,9 +94,9 @@ final class SearchViewController: UIViewController, SearchView {
   // 画面遷移
   func showUserRepository(with user: User) {
     guard let presenter = favoritePresenter else { return }
-//    let vc = User
+    let vc = UserRepositoryViewController(user: user, favoritePresenter: presenter)
     // 画面を遷移
-//    navigationController?.pushViewController(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
   }
   
   func updateTotalCountLabel(_ countText: String) {
