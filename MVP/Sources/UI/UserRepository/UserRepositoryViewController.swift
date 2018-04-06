@@ -57,6 +57,7 @@ class UserRepositoryViewController: UIViewController, UserRepositoryView {
     repositoryTableView.reloadData()
   }
   
+  // UserRepositoryViewDataSource.swiftのtableViewのdidSelectにより反応（配列番号を保持） → presenterでレポジトリを取得したのち
   func showRepository(with repository: Repository) {
     // レポジトリ詳細画面に遷移
     let vc = RepositoryViewController(repository: repository, favoritePresenter: favoritePresenter)

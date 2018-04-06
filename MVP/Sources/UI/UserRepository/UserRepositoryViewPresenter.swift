@@ -16,10 +16,13 @@ protocol UserRepositoryPresenter {
   var isFetchingRepositories: Bool { get }
   var numberOfRepositories: Int { get }
   func repository(at index: Int) -> GithubKit.Repository
+  func showRepository(at index: Int)
   func showLoadingView(on view: UIView)
+  func setIsReachedBottom(_ isReachedBottom: Bool)
   func fetchRepositories()
 }
 
+// 処理は基本presenter層で行う
 class UserRepositoryViewPresenter: UserRepositoryPresenter {
   
   weak var view: UserRepositoryView?
@@ -59,6 +62,14 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
     }
   }
   
+  // tableViewの一番下まで到達したかどうか判断する変数
+  private var isReachedBottom: Bool = false {
+    didSet {
+      if isReachedBottom && isReachedBottom != oldValue {
+        fetchRepositories()
+      }
+    }
+  }
   // UserRepositoryVCでUserRepositoryPresenterを保持する際に必要
   required init(user: User) {
     self.user = user
@@ -79,10 +90,19 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
     return repositories[index]
   }
   
+  // UserRepositoryViewDataSource.swiftのtableViewのdidSelectにより反応
+  func showRepository(at index: Int) {
+    let repository = repositories[index]
+    self.view?.showRepository(with: repository)
+  }
+  
   func showLoadingView(on view: UIView) {
     self.view?.updateLoadingView(with: view, isLoading: isFetchingRepositories)
   }
   
+  func setIsReachedBottom(_ isReachedBottom: Bool) {
+    self.isReachedBottom = isReachedBottom
+  }
   // 一ユーザのレポジトリをAPIを通じて取得: VC
   func fetchRepositories() {
     if task != nil { return }

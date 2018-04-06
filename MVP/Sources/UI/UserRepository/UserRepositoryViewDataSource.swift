@@ -49,3 +49,28 @@ extension UserRepositoryViewDataSource: UITableViewDataSource {
   
 }
 
+extension UserRepositoryViewDataSource: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: false)
+    presenter.showRepository(at: indexPath.row)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let repository = presenter.repository(at: indexPath.row)
+    return RepositoryViewCell.calculateHeight(with: repository, and: tableView)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return .leastNormalMagnitude
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return presenter.isFetchingRepositories ? LoadingView.defaultHeight : .leastNormalMagnitude
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let maxScrollDistance = max(0, scrollView.contentSize.height - scrollView.bounds.size.height)
+    presenter.setIsReachedBottom(maxScrollDistance <= scrollView.contentOffset.y)
+  }
+}
+
