@@ -20,7 +20,7 @@ protocol FavoritePresenter: class {
 }
 
 final class FavoriteViewPresenter: FavoritePresenter {
-  private var view: FavoriteView?
+  private weak var view: FavoriteView?
   // お気に入りの一覧を保持しているfavorites: [GithubKit.Repository]が更新されると以下を実行
   private var favorites: [GithubKit.Repository] = [] {
     didSet {

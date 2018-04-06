@@ -11,7 +11,7 @@ import GithubKit
 
 protocol UserRepositoryPresenter {
   init(user: User)
-  weak var view: UserRepositoryView? { get }
+  weak var view: UserRepositoryView? { get set }
   var title: String { get }
   var isFetchingRepositories: Bool { get }
   var numberOfRepositories: Int { get }
@@ -71,7 +71,7 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
     }
   }
   // UserRepositoryVCでUserRepositoryPresenterを保持する際に必要
-  init(user: User) {
+  required init(user: User) {
     self.user = user
   }
   

@@ -20,7 +20,7 @@ class RepositoryViewPresenter: RepositoryPresenter {
   private let favoritePresenter: FavoritePresenter
   private let repository: GithubKit.Repository
   
-  init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter) {
+  required init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter) {
     self.repository = repository
     self.favoritePresenter = favoritePresenter
   }
