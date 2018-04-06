@@ -18,7 +18,7 @@ protocol RepositoryView: class {
 
 final class RepositoryViewController: SFSafariViewController, RepositoryView {
   
-  private lazy var favoriteButtonItem: UIBarButtonItem = {
+  private(set) lazy var favoriteButtonItem: UIBarButtonItem = {
     return UIBarButtonItem(
       title: self.presenter.favoriteButtonTitle,
       style: .plain,

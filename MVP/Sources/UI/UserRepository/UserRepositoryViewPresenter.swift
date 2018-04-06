@@ -71,7 +71,7 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
     }
   }
   // UserRepositoryVCでUserRepositoryPresenterを保持する際に必要
-  required init(user: User) {
+  init(user: User) {
     self.user = user
   }
   
@@ -103,6 +103,7 @@ class UserRepositoryViewPresenter: UserRepositoryPresenter {
   func setIsReachedBottom(_ isReachedBottom: Bool) {
     self.isReachedBottom = isReachedBottom
   }
+  
   // 一ユーザのレポジトリをAPIを通じて取得: VC
   func fetchRepositories() {
     if task != nil { return }

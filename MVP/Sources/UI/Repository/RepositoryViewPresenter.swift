@@ -10,17 +10,17 @@ import GithubKit
 
 protocol RepositoryPresenter: class {
   init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter)
-  var view: RepositoryView { get set }
+  weak var view: RepositoryView? { get set }
   var favoriteButtonTitle: String { get }
   func favoriteButtonTap()
 }
 
 class RepositoryViewPresenter: RepositoryPresenter {
-  var view: RepositoryView
+  weak var view: RepositoryView?
   private let favoritePresenter: FavoritePresenter
   private let repository: GithubKit.Repository
   
-  required init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter) {
+  init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter) {
     self.repository = repository
     self.favoritePresenter = favoritePresenter
   }
@@ -34,10 +34,10 @@ class RepositoryViewPresenter: RepositoryPresenter {
     // お気に入り登録の追加や削除とUINavigationItemに表示する文字を表示する処理をfavoritePresenterに委譲する
     if favoritePresenter.contains(repository) {
       favoritePresenter.removeFavorite(repository)
-      view.updateFavoriteButtonTitle(favoriteButtonTitle)
+      view?.updateFavoriteButtonTitle(favoriteButtonTitle)
     } else {
       favoritePresenter.addFavorite(repository)
-      view.updateFavoriteButtonTitle(favoriteButtonTitle)
+      view?.updateFavoriteButtonTitle(favoriteButtonTitle)
     }
   }
 }

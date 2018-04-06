@@ -19,7 +19,7 @@ final class FavoriteViewController: UIViewController, FavoriteView {
   @IBOutlet weak var favoriteTableView: UITableView!
   
   // 自身のpresenterを保持
-  private lazy var presenter: FavoritePresenter = FavoriteViewPresenter(view: self)
+  private(set) lazy var presenter: FavoritePresenter = FavoriteViewPresenter(view: self)
   // 自身の(tableView)dataSourceを保持
   private lazy var dataSource: FavoriteViewDataSource = .init(presenter: self.presenter)
   

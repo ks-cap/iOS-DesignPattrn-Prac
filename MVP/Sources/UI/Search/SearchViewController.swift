@@ -33,7 +33,7 @@ final class SearchViewController: UIViewController, SearchView {
   // ロード画面に表示するactivityIndicator
   fileprivate let loadingView = LoadingView.makeFromNib()
   // FavoritePresenterを参照
-  private let favoritePresenter: FavoritePresenter?
+  let favoritePresenter: FavoritePresenter? = nil
   // 自身のpresenterを保持
   private lazy var presenter: SearchPresenter = SearchViewPresenter(view: self)
   // 自身のdataSourceを保持

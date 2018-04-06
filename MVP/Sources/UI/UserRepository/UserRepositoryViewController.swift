@@ -27,6 +27,7 @@ class UserRepositoryViewController: UIViewController, UserRepositoryView {
   // 自身のpresenterを保持
   private let presenter: UserRepositoryPresenter
   
+  private let dataSource: UserRepositoryViewDataSource = .init(presenter: self.presenter)
   // イニシャライザ: 初期値代入
   init(user: GithubKit.User, favoritePresenter: FavoritePresenter) {
     self.favoritePresenter = favoritePresenter

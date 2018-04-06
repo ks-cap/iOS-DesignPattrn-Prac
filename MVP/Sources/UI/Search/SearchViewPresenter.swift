@@ -120,7 +120,7 @@ final class SearchViewPresenter: SearchPresenter {
   }
   
   // 検索結果を取りに行っているかどうか判別
-  var isFetchingUsers = false {
+  private(set) var isFetchingUsers = false {
     didSet {
       DispatchQueue.main.async { [weak self] in
         self?.view?.reloadData()
