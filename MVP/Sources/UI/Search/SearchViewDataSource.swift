@@ -60,6 +60,7 @@ extension SearchViewDataSource: UITableViewDataSource {
 }
 
 extension SearchViewDataSource: UITableViewDelegate {
+  // レポジトリを押した時の処理
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     presenter.showUser(at: indexPath.row)
