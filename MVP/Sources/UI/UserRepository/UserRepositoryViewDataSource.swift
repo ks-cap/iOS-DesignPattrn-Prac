@@ -47,6 +47,14 @@ extension UserRepositoryViewDataSource: UITableViewDataSource {
     return cell
   }
   
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    guard let view = tableView.dequeueReusableCell(withIdentifier: UITableViewHeaderFooterView.className) else {
+      return nil
+    }
+    presenter.showLoadingView(on: view)
+    return view
+  }
+  
 }
 
 extension UserRepositoryViewDataSource: UITableViewDelegate {
