@@ -52,6 +52,11 @@
 		B2F3ABAE207A52BB00AFC4B0 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA8207A43FE0084DAB0 /* SwiftIconFont.framework */; };
 		B2F3ABAF207A52C600AFC4B0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */; };
 		B2F3ABB3207A539B00AFC4B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2F3ABA6207A52A100AFC4B0 /* Info.plist */; };
+		B2F3ABB9207A546D00AFC4B0 /* APISession+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABB8207A546D00AFC4B0 /* APISession+extension.swift */; };
+		B2F3ABBB207A552200AFC4B0 /* NSObjectProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABBA207A552200AFC4B0 /* NSObjectProtocol+extension.swift */; };
+		B2F3ABBD207A554700AFC4B0 /* UIKeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABBC207A554700AFC4B0 /* UIKeyboardInfo.swift */; };
+		B2F3ABBF207A555D00AFC4B0 /* UIKeyboardWillHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABBE207A555D00AFC4B0 /* UIKeyboardWillHide.swift */; };
+		B2F3ABC1207A557400AFC4B0 /* UIKeyboardWillShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABC0207A557400AFC4B0 /* UIKeyboardWillShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +105,11 @@
 		B2F3ABA1207A52A100AFC4B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2F3ABA4207A52A100AFC4B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2F3ABA6207A52A100AFC4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2F3ABB8207A546D00AFC4B0 /* APISession+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APISession+extension.swift"; sourceTree = "<group>"; };
+		B2F3ABBA207A552200AFC4B0 /* NSObjectProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+extension.swift"; sourceTree = "<group>"; };
+		B2F3ABBC207A554700AFC4B0 /* UIKeyboardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardInfo.swift; sourceTree = "<group>"; };
+		B2F3ABBE207A555D00AFC4B0 /* UIKeyboardWillHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillHide.swift; sourceTree = "<group>"; };
+		B2F3ABC0207A557400AFC4B0 /* UIKeyboardWillShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKeyboardWillShow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,8 +319,8 @@
 		B2F3AB99207A529F00AFC4B0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				B2F3ABB2207A537900AFC4B0 /* Sources */,
 				B2F3ABB1207A536C00AFC4B0 /* Resources */,
+				B2F3ABB2207A537900AFC4B0 /* Sources */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -328,8 +338,8 @@
 		B2F3ABB2207A537900AFC4B0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B2F3ABB5207A53DD00AFC4B0 /* UI */,
 				B2F3ABB4207A53D700AFC4B0 /* Common */,
+				B2F3ABB5207A53DD00AFC4B0 /* UI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -337,9 +347,9 @@
 		B2F3ABB4207A53D700AFC4B0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B2F3AB9A207A52A000AFC4B0 /* AppDelegate.swift */,
 				B2F3ABB7207A541300AFC4B0 /* Extension */,
 				B2F3ABB6207A540B00AFC4B0 /* NotieObserver */,
-				B2F3AB9A207A52A000AFC4B0 /* AppDelegate.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -355,6 +365,9 @@
 		B2F3ABB6207A540B00AFC4B0 /* NotieObserver */ = {
 			isa = PBXGroup;
 			children = (
+				B2F3ABBC207A554700AFC4B0 /* UIKeyboardInfo.swift */,
+				B2F3ABBE207A555D00AFC4B0 /* UIKeyboardWillHide.swift */,
+				B2F3ABC0207A557400AFC4B0 /* UIKeyboardWillShow.swift */,
 			);
 			path = NotieObserver;
 			sourceTree = "<group>";
@@ -362,6 +375,8 @@
 		B2F3ABB7207A541300AFC4B0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B2F3ABB8207A546D00AFC4B0 /* APISession+extension.swift */,
+				B2F3ABBA207A552200AFC4B0 /* NSObjectProtocol+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -581,6 +596,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F3AB9B207A52A000AFC4B0 /* AppDelegate.swift in Sources */,
+				B2F3ABC1207A557400AFC4B0 /* UIKeyboardWillShow.swift in Sources */,
+				B2F3ABBB207A552200AFC4B0 /* NSObjectProtocol+extension.swift in Sources */,
+				B2F3ABBF207A555D00AFC4B0 /* UIKeyboardWillHide.swift in Sources */,
+				B2F3ABBD207A554700AFC4B0 /* UIKeyboardInfo.swift in Sources */,
+				B2F3ABB9207A546D00AFC4B0 /* APISession+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
