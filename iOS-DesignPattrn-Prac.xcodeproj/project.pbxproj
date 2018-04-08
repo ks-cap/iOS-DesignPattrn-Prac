@@ -41,6 +41,17 @@
 		B2AE7CAC207A43FE0084DAB0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA9207A43FE0084DAB0 /* Nuke.framework */; };
 		B2AE7CAD207A43FE0084DAB0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */; };
 		B2AE7CB1207A453B0084DAB0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */; };
+		B2F3AB9B207A52A000AFC4B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3AB9A207A52A000AFC4B0 /* AppDelegate.swift */; };
+		B2F3ABA0207A52A000AFC4B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F3AB9E207A52A000AFC4B0 /* Main.storyboard */; };
+		B2F3ABA2207A52A100AFC4B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F3ABA1207A52A100AFC4B0 /* Assets.xcassets */; };
+		B2F3ABA5207A52A100AFC4B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F3ABA3207A52A100AFC4B0 /* LaunchScreen.storyboard */; };
+		B2F3ABAA207A52BB00AFC4B0 /* GithubKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C3206F888C0058C73A /* GithubKit.framework */; };
+		B2F3ABAB207A52BB00AFC4B0 /* NoticeObserveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21509C4206F888C0058C73A /* NoticeObserveKit.framework */; };
+		B2F3ABAC207A52BB00AFC4B0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA9207A43FE0084DAB0 /* Nuke.framework */; };
+		B2F3ABAD207A52BB00AFC4B0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */; };
+		B2F3ABAE207A52BB00AFC4B0 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA8207A43FE0084DAB0 /* SwiftIconFont.framework */; };
+		B2F3ABAF207A52C600AFC4B0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */; };
+		B2F3ABB3207A539B00AFC4B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2F3ABA6207A52A100AFC4B0 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +94,12 @@
 		B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B2AE7CAE207A45150084DAB0 /* Xcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Xcode.app; path = ../../../../Applications/Xcode.app; sourceTree = "<group>"; };
 		B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		B2F3AB98207A529F00AFC4B0 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F3AB9A207A52A000AFC4B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B2F3AB9F207A52A000AFC4B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B2F3ABA1207A52A100AFC4B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2F3ABA4207A52A100AFC4B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B2F3ABA6207A52A100AFC4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +123,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2F3AB95207A529F00AFC4B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2F3ABAF207A52C600AFC4B0 /* SafariServices.framework in Frameworks */,
+				B2F3ABAA207A52BB00AFC4B0 /* GithubKit.framework in Frameworks */,
+				B2F3ABAB207A52BB00AFC4B0 /* NoticeObserveKit.framework in Frameworks */,
+				B2F3ABAC207A52BB00AFC4B0 /* Nuke.framework in Frameworks */,
+				B2F3ABAD207A52BB00AFC4B0 /* RxSwift.framework in Frameworks */,
+				B2F3ABAE207A52BB00AFC4B0 /* SwiftIconFont.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +144,7 @@
 			children = (
 				B2150999206F83E00058C73A /* iOS-DesignPattrn-Prac */,
 				B21509B1206F83EB0058C73A /* MVP */,
+				B2F3AB99207A529F00AFC4B0 /* MVVM */,
 				B2150998206F83E00058C73A /* Products */,
 				B21509C2206F888C0058C73A /* Frameworks */,
 			);
@@ -124,6 +155,7 @@
 			children = (
 				B2150997206F83E00058C73A /* iOS-DesignPattrn-Prac.app */,
 				B21509B0206F83EB0058C73A /* MVP.app */,
+				B2F3AB98207A529F00AFC4B0 /* MVVM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,6 +306,66 @@
 			path = UserRepository;
 			sourceTree = "<group>";
 		};
+		B2F3AB99207A529F00AFC4B0 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				B2F3ABB2207A537900AFC4B0 /* Sources */,
+				B2F3ABB1207A536C00AFC4B0 /* Resources */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		B2F3ABB1207A536C00AFC4B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2F3ABA1207A52A100AFC4B0 /* Assets.xcassets */,
+				B2F3ABA3207A52A100AFC4B0 /* LaunchScreen.storyboard */,
+				B2F3ABA6207A52A100AFC4B0 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B2F3ABB2207A537900AFC4B0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B2F3ABB5207A53DD00AFC4B0 /* UI */,
+				B2F3ABB4207A53D700AFC4B0 /* Common */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B2F3ABB4207A53D700AFC4B0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B2F3ABB7207A541300AFC4B0 /* Extension */,
+				B2F3ABB6207A540B00AFC4B0 /* NotieObserver */,
+				B2F3AB9A207A52A000AFC4B0 /* AppDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B2F3ABB5207A53DD00AFC4B0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B2F3AB9E207A52A000AFC4B0 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B2F3ABB6207A540B00AFC4B0 /* NotieObserver */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NotieObserver;
+			sourceTree = "<group>";
+		};
+		B2F3ABB7207A541300AFC4B0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,13 +404,31 @@
 			productReference = B21509B0206F83EB0058C73A /* MVP.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B2F3AB97207A529F00AFC4B0 /* MVVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2F3ABA9207A52A100AFC4B0 /* Build configuration list for PBXNativeTarget "MVVM" */;
+			buildPhases = (
+				B2F3AB94207A529F00AFC4B0 /* Sources */,
+				B2F3AB95207A529F00AFC4B0 /* Frameworks */,
+				B2F3AB96207A529F00AFC4B0 /* Resources */,
+				B2F3ABB0207A52D000AFC4B0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MVVM;
+			productName = MVVM;
+			productReference = B2F3AB98207A529F00AFC4B0 /* MVVM.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B215098F206F83E00058C73A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "佐藤賢";
 				TargetAttributes = {
@@ -328,6 +438,10 @@
 					};
 					B21509AF206F83EB0058C73A = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					B2F3AB97207A529F00AFC4B0 = {
+						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -347,6 +461,7 @@
 			targets = (
 				B2150996206F83E00058C73A /* iOS-DesignPattrn-Prac */,
 				B21509AF206F83EB0058C73A /* MVP */,
+				B2F3AB97207A529F00AFC4B0 /* MVVM */,
 			);
 		};
 /* End PBXProject section */
@@ -374,10 +489,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2F3AB96207A529F00AFC4B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2F3ABB3207A539B00AFC4B0 /* Info.plist in Resources */,
+				B2F3ABA5207A52A100AFC4B0 /* LaunchScreen.storyboard in Resources */,
+				B2F3ABA2207A52A100AFC4B0 /* Assets.xcassets in Resources */,
+				B2F3ABA0207A52A000AFC4B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		B21509C7206F88A90058C73A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/GithubKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NoticeObserveKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		B2F3ABB0207A52D000AFC4B0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,6 +576,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2F3AB94207A529F00AFC4B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2F3AB9B207A52A000AFC4B0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -463,6 +615,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				B21509BC206F83EB0058C73A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B2F3AB9E207A52A000AFC4B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2F3AB9F207A52A000AFC4B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B2F3ABA3207A52A100AFC4B0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2F3ABA4207A52A100AFC4B0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -649,6 +817,48 @@
 			};
 			name = Release;
 		};
+		B2F3ABA7207A52A100AFC4B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL94BNBL3S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MVVM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ken.MVVM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2F3ABA8207A52A100AFC4B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JL94BNBL3S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MVVM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ken.MVVM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -675,6 +885,15 @@
 			buildConfigurations = (
 				B21509C0206F83EB0058C73A /* Debug */,
 				B21509C1206F83EB0058C73A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2F3ABA9207A52A100AFC4B0 /* Build configuration list for PBXNativeTarget "MVVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2F3ABA7207A52A100AFC4B0 /* Debug */,
+				B2F3ABA8207A52A100AFC4B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
