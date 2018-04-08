@@ -39,6 +39,7 @@ final class RepositoryViewController: SFSafariViewController, RepositoryView {
     self.presenter = RepositoryViewPresenter(repository: repository,
                                              favoritePresenter: favoritePresenter)
     super.init(url: repository.url, entersReaderIfAvailable: entersReaderIfAvailable)
+    
     hidesBottomBarWhenPushed = true
     self.presenter.view = self
   }

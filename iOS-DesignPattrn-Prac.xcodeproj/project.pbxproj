@@ -37,6 +37,10 @@
 		B21509F6207667B30058C73A /* UserRepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21509F5207667B30058C73A /* UserRepositoryViewController.xib */; };
 		B21509F820766A230058C73A /* UserRepositoryViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */; };
 		B21509FA207677CC0058C73A /* UserRepositoryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21509F9207677CC0058C73A /* UserRepositoryViewDataSource.swift */; };
+		B2AE7CAB207A43FE0084DAB0 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA8207A43FE0084DAB0 /* SwiftIconFont.framework */; };
+		B2AE7CAC207A43FE0084DAB0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CA9207A43FE0084DAB0 /* Nuke.framework */; };
+		B2AE7CAD207A43FE0084DAB0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */; };
+		B2AE7CB1207A453B0084DAB0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,11 @@
 		B21509F5207667B30058C73A /* UserRepositoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserRepositoryViewController.xib; sourceTree = "<group>"; };
 		B21509F720766A230058C73A /* UserRepositoryViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewPresenter.swift; sourceTree = "<group>"; };
 		B21509F9207677CC0058C73A /* UserRepositoryViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryViewDataSource.swift; sourceTree = "<group>"; };
+		B2AE7CA8207A43FE0084DAB0 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
+		B2AE7CA9207A43FE0084DAB0 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		B2AE7CAE207A45150084DAB0 /* Xcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Xcode.app; path = ../../../../Applications/Xcode.app; sourceTree = "<group>"; };
+		B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2AE7CB1207A453B0084DAB0 /* SafariServices.framework in Frameworks */,
+				B2AE7CAB207A43FE0084DAB0 /* SwiftIconFont.framework in Frameworks */,
+				B2AE7CAC207A43FE0084DAB0 /* Nuke.framework in Frameworks */,
+				B2AE7CAD207A43FE0084DAB0 /* RxSwift.framework in Frameworks */,
 				B21509C5206F888C0058C73A /* GithubKit.framework in Frameworks */,
 				B21509C6206F888C0058C73A /* NoticeObserveKit.framework in Frameworks */,
 			);
@@ -140,6 +153,11 @@
 		B21509C2206F888C0058C73A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2AE7CB0207A453B0084DAB0 /* SafariServices.framework */,
+				B2AE7CAE207A45150084DAB0 /* Xcode.app */,
+				B2AE7CA9207A43FE0084DAB0 /* Nuke.framework */,
+				B2AE7CAA207A43FE0084DAB0 /* RxSwift.framework */,
+				B2AE7CA8207A43FE0084DAB0 /* SwiftIconFont.framework */,
 				B21509C3206F888C0058C73A /* GithubKit.framework */,
 				B21509C4206F888C0058C73A /* NoticeObserveKit.framework */,
 			);
@@ -367,6 +385,9 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/GithubKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NoticeObserveKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
 			);
 			outputPaths = (
 			);

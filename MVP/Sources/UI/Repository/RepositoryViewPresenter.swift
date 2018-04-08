@@ -10,7 +10,7 @@ import GithubKit
 
 protocol RepositoryPresenter: class {
   init(repository: GithubKit.Repository, favoritePresenter: FavoritePresenter)
-  weak var view: RepositoryView? { get set }
+  var view: RepositoryView? { get set }
   var favoriteButtonTitle: String { get }
   func favoriteButtonTap()
 }
