@@ -60,6 +60,7 @@
 		B2F3ABC7207B3EC100AFC4B0 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABC6207B3EC100AFC4B0 /* FavoriteViewModel.swift */; };
 		B2F3ABCB207B448800AFC4B0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCA207B448800AFC4B0 /* FavoriteViewController.swift */; };
 		B2F3ABCD207B6FC200AFC4B0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */; };
+		B2F3ABCF207B727700AFC4B0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B2150999206F83E00058C73A /* iOS-DesignPattrn-Prac */,
+				B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */,
 				B21509B1206F83EB0058C73A /* MVP */,
 				B2F3AB99207A529F00AFC4B0 /* MVVM */,
 				B2150998206F83E00058C73A /* Products */,
@@ -385,7 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				B2F3ABB8207A546D00AFC4B0 /* APISession+extension.swift */,
-				B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */,
 				B2F3ABBA207A552200AFC4B0 /* NSObjectProtocol+extension.swift */,
 			);
 			path = Extension;
@@ -605,6 +606,7 @@
 				B21509DF2070A3B90058C73A /* SearchViewController.swift in Sources */,
 				B21509F2207299000058C73A /* UserRepositoryViewController.swift in Sources */,
 				B21509D7206FE6A70058C73A /* RepositoryViewPresenter.swift in Sources */,
+				B2F3ABCF207B727700AFC4B0 /* Secret.swift in Sources */,
 				B21509EF207202390058C73A /* LoadingView.swift in Sources */,
 				B21509E12070A3CC0058C73A /* SearchViewPresenter.swift in Sources */,
 				B21509D2206F92C80058C73A /* FavoriteViewDataSource.swift in Sources */,
