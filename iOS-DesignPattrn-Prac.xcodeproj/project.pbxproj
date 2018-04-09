@@ -59,6 +59,7 @@
 		B2F3ABC5207B3D7200AFC4B0 /* FavoriteViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABC4207B3D7200AFC4B0 /* FavoriteViewDataSource.swift */; };
 		B2F3ABC7207B3EC100AFC4B0 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABC6207B3EC100AFC4B0 /* FavoriteViewModel.swift */; };
 		B2F3ABCB207B448800AFC4B0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCA207B448800AFC4B0 /* FavoriteViewController.swift */; };
+		B2F3ABCD207B6FC200AFC4B0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		B2F3ABC4207B3D7200AFC4B0 /* FavoriteViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewDataSource.swift; sourceTree = "<group>"; };
 		B2F3ABC6207B3EC100AFC4B0 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B2F3ABCA207B448800AFC4B0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F3ABB8207A546D00AFC4B0 /* APISession+extension.swift */,
+				B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */,
 				B2F3ABBA207A552200AFC4B0 /* NSObjectProtocol+extension.swift */,
 			);
 			path = Extension;
@@ -619,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F3AB9B207A52A000AFC4B0 /* AppDelegate.swift in Sources */,
+				B2F3ABCD207B6FC200AFC4B0 /* Secret.swift in Sources */,
 				B2F3ABC1207A557400AFC4B0 /* UIKeyboardWillShow.swift in Sources */,
 				B2F3ABBB207A552200AFC4B0 /* NSObjectProtocol+extension.swift in Sources */,
 				B2F3ABBF207A555D00AFC4B0 /* UIKeyboardWillHide.swift in Sources */,
