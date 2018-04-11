@@ -27,18 +27,17 @@ final class RepositoryViewModel {
         (favorites, favorites.index(where: { $0.url == repository.url }))
     }
     
-    /*
-     indexが存在した場合は該当のindexを削除した状態の配列返し,
-     indexが存在しない場合はViewModelが保持しているGithubKit.Repositoryを追加した配列を返す.
-     */
+    // ControlEvent<Void>のイベントを受け取った際に上記の最新状態をwithLatestFromで受け取る
     favoriteButtonTap
       .withLatestFrom(favoritesAndIndex)
       .map { [repository] favorites, index in
         var favorites = favorites
         if let index = index {
+          // 該当のindexを削除した状態の配列返す
           favorites.remove(at: index)
           return favorites
         }
+        // ViewModelが保持しているGithubKit.Repositoryを追加した配列を返す.
         favorites.append(repository)
         return favorites
       }

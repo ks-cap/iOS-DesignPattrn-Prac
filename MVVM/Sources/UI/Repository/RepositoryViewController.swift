@@ -15,14 +15,18 @@ final class RepositoryViewController: SFSafariViewController {
   
   private let favoriteButtonItem: UIBarButtonItem
   private let disposeBag = DisposeBag()
-//  private let viewModel: RepositoryViewModel
+  private let viewModel: RepositoryViewModel
   
   init(repository: GithubKit.Repository,
        favoriteOutput: Observable<[GithubKit.Repository]>,
        favoriteInput: AnyObserver<[GithubKit.Repository]>) {
     let favoriteButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
     self.favoriteButtonItem = favoriteButtonItem
-    //    self.viewModel =
+    // favoriteButtonItemのタップイベントをfavoriteButtonItem.rx.tapとして、RepositoryViewModelのinitializerに渡す.
+    self.viewModel = RepositoryViewModel(repository: repository,
+                                         favoritesOutput: favoriteOutput,
+                                         favoritesInput: favoriteInput,
+                                         favoriteButtonTap: favoriteButtonItem.rx.tap)
     super.init(url: repository.url, entersReaderIfAvailable: true)
   }
   
