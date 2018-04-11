@@ -19,6 +19,10 @@ final class FavoriteViewController: UIViewController {
   private lazy var dataSource: FavoriteViewDataSource = .init(viewModel: self.viewModel)
   
   private private(set) lazy var viewModel: FavoriteViewModel = {
+    /*
+     FavoriteViewDataSourceから送られてきたObservable型変数をviewModelに流す
+     (そのために必要な処理"bind"をviewDidLoad内で行っている)
+     */
     .init(selectedIndexPath: self.selectedIndexPath)
   }()
   
@@ -29,11 +33,20 @@ final class FavoriteViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // dataSourceからのイベントをviewModelに流すことができる
     
-    viewModel.selectRepository
+    // ---- viewとviewModelをbind ----
+    
+    // dataSourceからのイベントをviewModelに流すための処理
+    dataSource.selectedIndexPath
+      .bind(to: selectedIndexPath)
+      .disposed(by: disposebag)
+    
+    // viewModel内の変数とshowRepositoryをbindする
+    viewModel.selectedRepository
       .bind(to: showRepository)
-      .disposed(by: disposeBag)
+      .disposed(by: disposebag)
+    
+    // ------------------------------
   }
   
   override func didReceiveMemoryWarning() {
@@ -46,7 +59,7 @@ final class FavoriteViewController: UIViewController {
     return UIBindingObserver(UIElement: self) { me, repository in
       let vc = RepositoryViewController(...)
       me.navigationController?.pushViewController(vc, animated: true)
-    }.asObserver()
+      }.asObserver()
   }
   
 }

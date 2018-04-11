@@ -12,10 +12,11 @@ import GithubKit
 import RxSwift
 
 final class FavoriteViewDataSource: NSObject {
-  // 外部に公開
-  private let selectedIndexPath: Observable<IndexPath>
+  // 外部に公開 (viewControllerにてdataSourceとviewModelをbind)
+  let selectedIndexPath: Observable<IndexPath>
   
-  private let _selectedIndexPath: PublishSubject<IndexPath>
+  // テーブルビューのセルを押したときに反応
+  private let _selectedIndexPath = PublishSubject<IndexPath>()
   
   // 自身のviewModelを持つ
   private let viewModel: FavoriteViewModel
@@ -34,20 +35,26 @@ final class FavoriteViewDataSource: NSObject {
 
 extension FavoriteViewDataSource: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel
+    return viewModel.value.favorites.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeue(GithubKit.RepositoryViewCell.self, for: indexPath)
-    let repository =
-    cell.
+    let repository = viewModel.value.favorites[indexPath.row]
+    cell.configure(with: repository)
     
-    return
+    return cell
   }
 }
 
 extension FavoriteViewDataSource: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: false)
     _selectedIndexPath.onNext(indexPath)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let repository = viewModel.value.favorites[indexPath.row]
+    return RepositoryViewCell.calculateHeight(with: repository, and: tableView)
   }
 }
