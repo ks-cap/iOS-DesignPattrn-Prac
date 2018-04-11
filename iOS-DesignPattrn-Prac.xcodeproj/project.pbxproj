@@ -63,6 +63,7 @@
 		B2F3ABCF207B727700AFC4B0 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */; };
 		B2F3ABD1207B737C00AFC4B0 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABD0207B737C00AFC4B0 /* Value.swift */; };
 		B2F3ABD4207DFA0200AFC4B0 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABD3207DFA0200AFC4B0 /* RepositoryViewController.swift */; };
+		B2F3ABD6207DFD5600AFC4B0 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3ABD5207DFD5600AFC4B0 /* RepositoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		B2F3ABCC207B6FC200AFC4B0 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		B2F3ABD0207B737C00AFC4B0 /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		B2F3ABD3207DFA0200AFC4B0 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		B2F3ABD5207DFD5600AFC4B0 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F3ABD3207DFA0200AFC4B0 /* RepositoryViewController.swift */,
+				B2F3ABD5207DFD5600AFC4B0 /* RepositoryViewModel.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F3AB9B207A52A000AFC4B0 /* AppDelegate.swift in Sources */,
+				B2F3ABD6207DFD5600AFC4B0 /* RepositoryViewModel.swift in Sources */,
 				B2F3ABCD207B6FC200AFC4B0 /* Secret.swift in Sources */,
 				B2F3ABD1207B737C00AFC4B0 /* Value.swift in Sources */,
 				B2F3ABC1207A557400AFC4B0 /* UIKeyboardWillShow.swift in Sources */,
