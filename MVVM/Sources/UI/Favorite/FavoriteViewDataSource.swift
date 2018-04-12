@@ -22,6 +22,7 @@ final class FavoriteViewDataSource: NSObject {
   private let viewModel: FavoriteViewModel
   
   init(viewModel: FavoriteViewModel) {
+    self.viewModel = viewModel
     self.selectedIndexPath = _selectedIndexPath
   }
   

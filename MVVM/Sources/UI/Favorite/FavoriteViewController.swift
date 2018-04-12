@@ -69,7 +69,7 @@ final class FavoriteViewController: UIViewController {
   // RepositoryViewControllerに遷移
   private var showRepository: AnyObserver<GithubKit.Repository> {
     return UIBindingObserver(UIElement: self) { me, repository in
-      let vc = RepositoryViewController(...)
+      let vc = RepositoryViewController(repository: repository, favoriteOutput: me.favoritesOutput, favoriteInput: me.favoritesInput)
       me.navigationController?.pushViewController(vc, animated: true)
       }.asObserver()
   }
