@@ -12,16 +12,17 @@ import RxSwift
 import RxCocoa
 
 final class FavoriteViewModel {
-  // 外部に公開
+  // (_favoritesを)外部に公開
   let relaodData: Observable<Void>
-  
-  let disposeBag = DisposeBag()
+
   // _favoritesのイベントを外部に公開するために利用
   let favorites: Observable<[GithubKit.Repository]>
   // 配列内で該当するrowのRepositoryを返すイベントを外部に公開 (viewModel内の関数であるshowRepositoryとbindされている)
   let selectedRepository: Observable<GithubKit.Repository>
   
   let _favorites = BehaviorSubject<[GithubKit.Repository]>(value: [])
+  
+  let disposeBag = DisposeBag()
   
   /*
    favoritesObservable: Observable<[GithubKit.Repository]>を利用して外部からのイベントを受け取る.
@@ -31,9 +32,9 @@ final class FavoriteViewModel {
   init(favoritesObservable: Observable<[GithubKit.Repository]>,
     selectedIndexPath: Observable<IndexPath>) {
     
+     // _favoritesが更新されたイベントをObservable<Void>に変換.
     self.favorites = _favorites.asObservable()
-    // _favoritesが更新されたイベントをObservable<Void>に変換.
-    self.relaodData = _favorites.asObservable().map {_ in }
+    self.relaodData = _favorites.asObservable().map { _ in }
     
     /* selectedIndexPathからイベントが渡ってくると,
      最新の状態をwithLatestFromで取得し, 配列内で該当するrowのRepositoryを返す.

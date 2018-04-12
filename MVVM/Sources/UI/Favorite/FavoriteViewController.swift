@@ -13,6 +13,8 @@ import RxCocoa
 
 final class FavoriteViewController: UIViewController {
   
+  @IBOutlet weak var tableView: UITableView!
+  
   var favoritesInput: AnyObserver<[GithubKit.Repository]> { return favorites.asObserver() }
   var favoritesOutput: Observable<[GithubKit.Repository]> { return viewModel.favorites }
   
@@ -23,13 +25,19 @@ final class FavoriteViewController: UIViewController {
      FavoriteViewDataSourceから送られてきたObservable型変数をviewModelに流す
      (そのために必要な処理"bind"をviewDidLoad内で行っている)
      */
-    .init(selectedIndexPath: self.selectedIndexPath)
+    .init(favoritesObservable: self.favorites, selectedIndexPath: self.selectedIndexPath)
   }()
   
   private let selectedIndexPath = PublishSubject<IndexPath>()
   
   private let favorites = PublishSubject<[GithubKit.Repository]>()
   private let disposebag = DisposeBag()
+  
+  private var reloadData: AnyObserver<Void> {
+    return UIBindingObserver(UIElement: self) { me, _ in
+      me.tableView.reloadData()
+    }.asObserver()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,6 +54,10 @@ final class FavoriteViewController: UIViewController {
       .bind(to: showRepository)
       .disposed(by: disposebag)
     
+    // FavoriteViewModelで公開されているreloadDataをFavoriteViewControllerのreloadData: AnyObserver<Void>にbind
+    viewModel.relaodData
+    .bind(to: reloadData)
+    .disposed(by: disposebag)
     // ------------------------------
   }
   
