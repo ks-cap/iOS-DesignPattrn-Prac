@@ -15,8 +15,12 @@ final class FavoriteViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  // ------- 以下の2つが遷移する際に、それぞれのViewControllerのinitializerの引数として渡される -------
+  // self.favoritesを外部に公開
   var favoritesInput: AnyObserver<[GithubKit.Repository]> { return favorites.asObserver() }
+  // viewModel.favoritesを外部に公開
   var favoritesOutput: Observable<[GithubKit.Repository]> { return viewModel.favorites }
+  // ---------------------------------------------------------------------------------------
   
   private lazy var dataSource: FavoriteViewDataSource = .init(viewModel: self.viewModel)
   

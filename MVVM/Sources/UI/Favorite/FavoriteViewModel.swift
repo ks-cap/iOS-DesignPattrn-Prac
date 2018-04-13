@@ -14,7 +14,7 @@ import RxCocoa
 final class FavoriteViewModel {
   // (_favoritesを)外部に公開
   let relaodData: Observable<Void>
-
+  
   // _favoritesのイベントを外部に公開するために利用
   let favorites: Observable<[GithubKit.Repository]>
   // 配列内で該当するrowのRepositoryを返すイベントを外部に公開 (viewModel内の関数であるshowRepositoryとbindされている)
